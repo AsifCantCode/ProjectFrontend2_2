@@ -6,23 +6,37 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
+public class StudentLogin {
+
+    @FXML
+    private TextField studentID;
+
     @FXML
     private Label welcomeText;
 
     @FXML
-    protected void goToStudentPortal(ActionEvent event) throws IOException {
+    private TextField passWord;
+
+    //function for getting pass and username
+    @FXML
+    protected void pressedLoginButton(){
+        int userID = Integer.parseInt(studentID.getText());
+        String pass = passWord.getText();
+
+    }
+    @FXML
+    protected void goToClass(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Student_login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load(), 800, 600);
         myStage.setScene(subtractionScene);
         myStage.show();
     }
-
 }
