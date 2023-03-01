@@ -13,6 +13,9 @@ import java.io.IOException;
 
 public class StudentLogin {
 
+    private String pass = "iutcse";
+    private int userID = 1234;
+
     @FXML
     private TextField studentID;
 
@@ -25,18 +28,22 @@ public class StudentLogin {
     //function for getting pass and username
     @FXML
     protected void pressedLoginButton(){
-        int userID = Integer.parseInt(studentID.getText());
-        String pass = passWord.getText();
+
 
     }
     @FXML
     protected void goToClass(ActionEvent event) throws IOException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
+        int inp_ID = Integer.parseInt(studentID.getText());
+        String inp_pass = passWord.getText();
+        if(inp_pass.equals(pass) && inp_ID == userID)
+        {
+            Node root = (Node) event.getSource();
+            Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene.fxml"));
-        Scene subtractionScene = new Scene(fxmlLoader.load(), 800, 600);
-        myStage.setScene(subtractionScene);
-        myStage.show();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene.fxml"));
+            Scene subtractionScene = new Scene(fxmlLoader.load(), 800, 600);
+            myStage.setScene(subtractionScene);
+            myStage.show();
+        }
     }
 }
