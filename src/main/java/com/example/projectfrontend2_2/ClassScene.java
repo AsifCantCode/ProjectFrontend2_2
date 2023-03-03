@@ -1,6 +1,7 @@
 package com.example.projectfrontend2_2;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -11,6 +12,9 @@ import javafx.scene.shape.Rectangle;
 public class ClassScene {
     @FXML
     private ComboBox courses;
+
+    @FXML
+    private Button Routine;
     @FXML
     private Rectangle box;
     @FXML
@@ -25,4 +29,5 @@ public class ClassScene {
         String selected_course = (String)courses.getValue();
         box.setFill(Color.BLUE);
     }
+    
 }
