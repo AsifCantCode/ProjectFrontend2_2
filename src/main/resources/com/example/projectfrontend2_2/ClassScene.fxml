@@ -3,8 +3,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.ClassScene">
    <children>
@@ -24,5 +24,6 @@
             <Font size="36.0" />
          </font>
       </Label>
+      <Rectangle fx:id="box" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="294.0" layoutX="8.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="782.0" />
    </children>
 </AnchorPane>

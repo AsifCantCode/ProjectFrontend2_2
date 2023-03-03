@@ -5,12 +5,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class ClassScene {
     @FXML
     private ComboBox courses;
     @FXML
-    private HBox box;
+    private Rectangle box;
     @FXML
     private Label txt;
 
@@ -19,6 +21,8 @@ public class ClassScene {
     }
     @FXML
     protected void onCourseClick(){
-        txt.setText("kkkkkkkk");
+        //Getting the course name that is selected
+        String selected_course = (String)courses.getValue();
+        box.setFill(Color.BLUE);
     }
 }
