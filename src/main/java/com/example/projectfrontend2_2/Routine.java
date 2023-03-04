@@ -22,7 +22,7 @@ public class Routine {
     Image image = new Image("https://www.bogotobogo.com/images/java/tutorial/java_images/Duke256.png");
     ImagePattern imagePattern = new ImagePattern(image);
     @FXML
-    protected void gBackToClass(ActionEvent event) throws IOException {
+    protected void goBackToClass(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 

@@ -25,16 +25,49 @@ public class ClassScene {
     @FXML
     private Rectangle box;
     @FXML
+    private Label teacher;
+    @FXML
     private Label txt;
 
+    @FXML
+    private Label attendance_link;
+    private int ass = 0;
+
+    @FXML
+    private Label post;
+
+    @FXML
+    private Button assignment;
+
+    @FXML
+    private Label due_ass;
     public void initialize(){
-        courses.getItems().addAll("CSE 4402", "CSE 4404", "CSE 4407", "CSE 4403", "CSE 4405", "EEE 4483", "EEE 4484", "MATH 4441", "HUM 4441");
+        courses.getItems().addAll("CSE 4402: Visual Programming Lab",
+                                    "CSE 4404: Algorithms Lab",
+                                    "CSE 4407: System Analysis and Design",
+                                    "CSE 4403: Algorithms",
+                                    "CSE 4405: Data and Telecommunications",
+                                    "EEE 4483: Digital Electronics and Pulse Techniques",
+                                    "EEE 4484: Digital Electronics and Pulse Techniques Lab",
+                                    "MATH 4441: Probability and Statistics",
+                                    "HUM 4441: Engineering Ethics");
     }
     @FXML
     protected void onCourseClick(){
         //Getting the course name that is selected
         String selected_course = (String)courses.getValue();
-        box.setFill(Color.BLUE);
+        txt.setText(selected_course);
+        teacher.setText("Assigned Teacher: Mr. X");
+        attendance_link.setText("Here will be the attendance spreadsheet link");
+        post.setText("Tomorrow, there will be no class. Happy Sleeping! ");
+        due_ass.setText("Assignments Due: " + ass);
+        if(ass > 0){
+            assignment.setText("Assignments Pending!");
+            assignment.setTextFill(Color.RED);
+        }
+        else assignment.setText("No Assignments");
+
+        box.setFill(Color.CYAN);
     }
 
     @FXML

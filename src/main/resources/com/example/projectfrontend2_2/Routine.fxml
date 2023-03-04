@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.Routine">
    <children>
-      <Button fx:id="goBack" layoutX="687.0" layoutY="14.0" mnemonicParsing="false" onAction="#gBackToClass" prefHeight="51.0" prefWidth="99.0" text="GO BACK">
+      <Button fx:id="goBack" layoutX="687.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBackToClass" prefHeight="51.0" prefWidth="99.0" text="GO BACK">
          <font>
             <Font size="14.0" />
          </font></Button>
