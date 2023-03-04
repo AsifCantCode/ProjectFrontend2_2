@@ -1,5 +1,9 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.Login.LoginDTO;
+import com.example.projectfrontend2_2.Student.StudentDTO;
+import com.example.projectfrontend2_2.http.RequestMaker;
+import com.google.gson.Gson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,10 +36,26 @@ public class StudentLogin {
 
     }
     @FXML
-    protected void goToClass(ActionEvent event) throws IOException {
-        int inp_ID = Integer.parseInt(studentID.getText());
-        String inp_pass = passWord.getText();
-        if(inp_pass.equals(pass) && inp_ID == userID)
+    protected void goToClass(ActionEvent event) throws IOException , InterruptedException{
+
+
+        //int inp_ID = Integer.parseInt(studentID.getText());
+        //String inp_pass = passWord.getText();
+
+
+        LoginDTO ldto = new LoginDTO();
+        Gson gson = new Gson();
+        ldto.setStudentid(Long.parseLong(studentID.getText()));
+        ldto.setPassword(passWord.getText());
+
+        System.out.println("here");
+        String jackson = gson.toJson(ldto );
+        System.out.println( jackson +" weifhwe weofhwoe woefw");
+        RequestMaker rqm = new RequestMaker();
+
+        StudentDTO stdo = rqm.login_attempt(ldto , "/login/student");
+        System.out.println(stdo.getStudid());
+        if(stdo.getStudid().equals(ldto.getStudentid()))
         {
             Node root = (Node) event.getSource();
             Stage myStage = (Stage) root.getScene().getWindow();
