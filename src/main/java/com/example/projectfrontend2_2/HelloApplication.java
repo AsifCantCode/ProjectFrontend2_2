@@ -1,5 +1,6 @@
 package com.example.projectfrontend2_2;
 
+import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
