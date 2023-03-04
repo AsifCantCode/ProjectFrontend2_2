@@ -1,5 +1,6 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.http.RequestMaker;
@@ -14,11 +15,17 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentLogin {
 
     private String pass = "iutcse";
     private int userID = 1234;
+
+    static StudentDTO studentDTO;
+
+    static List<ClassroomDTO> all_classrooms;
 
     @FXML
     private TextField studentID;
@@ -57,6 +64,19 @@ public class StudentLogin {
         System.out.println(stdo.getStudid());
         if(stdo.getStudid().equals(ldto.getStudentid()))
         {
+            studentDTO = stdo;
+
+            List<Long> classroom_id = studentDTO.getClassroom_id();
+
+            System.out.println(classroom_id.size());
+            for(Long x : classroom_id){
+                System.out.println(x);
+            }
+            all_classrooms = new ArrayList<>();
+            for(Long x : classroom_id){
+                all_classrooms.add(rqm.fetch_classroom(x.intValue()));
+            }
+
             Node root = (Node) event.getSource();
             Stage myStage = (Stage) root.getScene().getWindow();
 
@@ -64,6 +84,10 @@ public class StudentLogin {
             Scene studentscene = new Scene(fxmlLoader.load(), 800, 600);
             myStage.setScene(studentscene);
             myStage.show();
+
         }
+
+
+
     }
 }

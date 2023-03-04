@@ -1,5 +1,7 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
+import com.example.projectfrontend2_2.Student.StudentDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,6 +36,8 @@ public class ClassScene {
     private int ass = 0;
 
     @FXML
+    private Label semester;
+    @FXML
     private Label post;
 
     @FXML
@@ -42,15 +46,20 @@ public class ClassScene {
     @FXML
     private Label due_ass;
     public void initialize(){
-        courses.getItems().addAll("CSE 4402: Visual Programming Lab",
-                                    "CSE 4404: Algorithms Lab",
-                                    "CSE 4407: System Analysis and Design",
-                                    "CSE 4403: Algorithms",
-                                    "CSE 4405: Data and Telecommunications",
-                                    "EEE 4483: Digital Electronics and Pulse Techniques",
-                                    "EEE 4484: Digital Electronics and Pulse Techniques Lab",
-                                    "MATH 4441: Probability and Statistics",
-                                    "HUM 4441: Engineering Ethics");
+//        courses.getItems().addAll("CSE 4402: Visual Programming Lab",
+//                                    "CSE 4404: Algorithms Lab",
+//                                    "CSE 4407: System Analysis and Design",
+//                                    "CSE 4403: Algorithms",
+//                                    "CSE 4405: Data and Telecommunications",
+//                                    "EEE 4483: Digital Electronics and Pulse Techniques",
+//                                    "EEE 4484: Digital Electronics and Pulse Techniques Lab",
+//                                    "MATH 4441: Probability and Statistics",
+//                                    "HUM 4441: Engineering Ethics");
+
+        for(ClassroomDTO c : StudentLogin.all_classrooms){
+            courses.getItems().add(c.getDept() +" " + c.getCoursecode());
+        }
+        semester.setText("Current Semester : " + StudentLogin.studentDTO.getSemester());
     }
     @FXML
     protected void onCourseClick(){

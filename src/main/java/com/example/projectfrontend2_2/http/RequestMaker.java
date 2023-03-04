@@ -1,5 +1,6 @@
 package com.example.projectfrontend2_2.http;
 
+import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.google.gson.Gson;
@@ -43,6 +44,29 @@ public class RequestMaker {
 
 
         return sdto;
+    }
+
+
+    public ClassroomDTO fetch_classroom(Integer Class_id) throws IOException, InterruptedException {
+
+        gson = new Gson();
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/fetch/classroom/" + Class_id.toString())).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body().toString());
+        ClassroomDTO cdto = gson.fromJson(response.body().toString() , ClassroomDTO.class);
+
+
+        System.out.println("here" + cdto.getDept());
+        return cdto;
     }
 
 }

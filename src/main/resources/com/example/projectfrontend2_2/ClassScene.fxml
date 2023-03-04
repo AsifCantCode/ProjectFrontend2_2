@@ -14,7 +14,7 @@
             <Font name="SansSerif Regular" size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutY="142.0" prefHeight="53.0" prefWidth="800.0" text="Current Semester: 4th">
+      <Label fx:id="semester" alignment="CENTER" layoutY="142.0" prefHeight="53.0" prefWidth="800.0" text="Current Semester: 4th">
          <font>
             <Font size="36.0" />
          </font>

@@ -9,4 +9,5 @@ module com.example.projectfrontend2_2 {
     exports com.example.projectfrontend2_2;
     opens  com.example.projectfrontend2_2.Login to com.google.gson;
     opens  com.example.projectfrontend2_2.Student to com.google.gson;
+    opens  com.example.projectfrontend2_2.Classroom to com.google.gson;
 }

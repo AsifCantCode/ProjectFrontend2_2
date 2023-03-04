@@ -4,11 +4,28 @@ import java.util.ArrayList;
 
 public class StudentDTO  {
 
-    private  Long studid;
-    private float cgpa;
+    private  Long id;
+
+
+
+    private Long studid;
+    private int semester;
+
 
     private String name;
+
+    private  String dept;
+
+    private float cgpa;
     private ArrayList<Long> classroom_id = new ArrayList<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getStudid() {
         return studid;
@@ -18,12 +35,12 @@ public class StudentDTO  {
         this.studid = studid;
     }
 
-    public float getCgpa() {
-        return cgpa;
+    public int getSemester() {
+        return semester;
     }
 
-    public void setCgpa(float cgpa) {
-        this.cgpa = cgpa;
+    public void setSemester(int semester) {
+        this.semester = semester;
     }
 
     public String getName() {
@@ -32,6 +49,22 @@ public class StudentDTO  {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
+    public float getCgpa() {
+        return cgpa;
+    }
+
+    public void setCgpa(float cgpa) {
+        this.cgpa = cgpa;
     }
 
     public ArrayList<Long> getClassroom_id() {
