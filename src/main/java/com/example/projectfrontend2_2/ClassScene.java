@@ -57,7 +57,7 @@ public class ClassScene {
 //                                    "HUM 4441: Engineering Ethics");
 
         for(ClassroomDTO c : StudentLogin.all_classrooms){
-            courses.getItems().add(c.getDept() +" " + c.getCoursecode());
+            courses.getItems().add(c.getDept() +" " + c.getCoursecode() +": " + c.getCoursename());
         }
         semester.setText("Current Semester : " + StudentLogin.studentDTO.getSemester());
     }

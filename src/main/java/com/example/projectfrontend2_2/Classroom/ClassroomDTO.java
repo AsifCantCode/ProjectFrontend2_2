@@ -11,6 +11,10 @@ public class ClassroomDTO {
     private int semester;
 
     private boolean archived;
+
+    private int session;
+
+    private String coursename;
     private Set<Long> students = new HashSet<>();
 
     public Long getId() {
@@ -59,5 +63,21 @@ public class ClassroomDTO {
 
     public void setStudents(Set<Long> students) {
         this.students = students;
+    }
+
+    public int getSession() {
+        return session;
+    }
+
+    public void setSession(int session) {
+        this.session = session;
+    }
+
+    public String getCoursename() {
+        return coursename;
+    }
+
+    public void setCoursename(String coursename) {
+        this.coursename = coursename;
     }
 }

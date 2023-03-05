@@ -17,6 +17,8 @@ public class StudentDTO  {
     private  String dept;
 
     private float cgpa;
+
+    private int session;
     private ArrayList<Long> classroom_id = new ArrayList<>();
 
     public Long getId() {
@@ -73,5 +75,13 @@ public class StudentDTO  {
 
     public void setClassroom_id(ArrayList<Long> classroom_id) {
         this.classroom_id = classroom_id;
+    }
+
+    public int getSession() {
+        return session;
+    }
+
+    public void setSession(int session) {
+        this.session = session;
     }
 }
