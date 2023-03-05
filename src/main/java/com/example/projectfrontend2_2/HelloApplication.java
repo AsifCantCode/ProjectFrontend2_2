@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,10 +14,11 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        String css = getClass().getResource("app.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setTitle("ClassRoom: Redefined");
         stage.setScene(scene);
-        stage.show();
-    }
+        stage.show();   }
 
     public static void main(String[] args) {
         launch();
