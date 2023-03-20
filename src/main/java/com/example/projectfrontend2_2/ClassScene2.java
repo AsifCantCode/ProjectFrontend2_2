@@ -18,9 +18,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ClassScene {
+public class ClassScene2 {
     @FXML
     private ComboBox<ClassroomDTO> courses;
+
+    @FXML
+    private Button Logout;
 
 
     @FXML
@@ -33,15 +36,10 @@ public class ClassScene {
     private int ass = 0;
 
     @FXML
-    private Label semester;
+    private Label course;
     @FXML
-    private Label post;
+    private Label teacher;
 
-    @FXML
-    private Button assignment;
-
-    @FXML
-    private Button go;
 
     @FXML
     private Label due_ass;
@@ -56,9 +54,9 @@ public class ClassScene {
 //                                    "MATH 4441: Probability and Statistics",
 //                                    "HUM 4441: Engineering Ethics");
 
-        /*for(ClassroomDTO c : StudentLogin.all_classrooms){
+        for(ClassroomDTO c : StudentLogin.all_classrooms){
             courses.getItems().add(c);
-        }*/
+        }
         //semester.setText("Current Semester : " + StudentLogin.studentDTO.getSemester());
     }
     @FXML
@@ -68,12 +66,11 @@ public class ClassScene {
         txt.setText(selected_course.toString());
 
 
-        due_ass.setText("Assignments Due: " + ass);
-        if(ass > 0){
-            assignment.setText("Assignments Pending!");
-            assignment.setTextFill(Color.RED);
-        }
-        else assignment.setText("No Assignments");
+
+       course.setText(selected_course.getCoursename());
+       teacher.setText("Mr. X");
+       due_ass.setText("No due");
+
 
 
     }
@@ -88,15 +85,7 @@ public class ClassScene {
         myStage.setScene(x);
         myStage.show();
     }
-    public void goToClass2(ActionEvent event) throws IOException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene2.fxml"));
-        Scene subtractionScene = new Scene(fxmlLoader.load());
-        myStage.setScene(subtractionScene);
-        myStage.show();
-    }
     public void goToHome(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
@@ -106,5 +95,5 @@ public class ClassScene {
         myStage.setScene(subtractionScene);
         myStage.show();
     }
-    
+
 }

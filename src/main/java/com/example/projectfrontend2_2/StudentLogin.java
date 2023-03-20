@@ -81,7 +81,7 @@ public class StudentLogin {
             Stage myStage = (Stage) root.getScene().getWindow();
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene.fxml"));
-            Scene studentscene = new Scene(fxmlLoader.load(), 800, 600);
+            Scene studentscene = new Scene(fxmlLoader.load());
             myStage.setScene(studentscene);
             myStage.show();
 

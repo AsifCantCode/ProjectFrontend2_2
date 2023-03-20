@@ -80,4 +80,10 @@ public class ClassroomDTO {
     public void setCoursename(String coursename) {
         this.coursename = coursename;
     }
+
+
+    @Override
+    public String toString(){
+        return dept + " " + coursecode;
+    }
 }

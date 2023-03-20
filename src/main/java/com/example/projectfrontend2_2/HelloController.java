@@ -14,13 +14,12 @@ public class HelloController {
     @FXML
     private Label welcomeText;
 
-    @FXML
-    protected void goToStudentPortal(ActionEvent event) throws IOException {
+    public void goToStudentPortal(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Student_login.fxml"));
-        Scene subtractionScene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene subtractionScene = new Scene(fxmlLoader.load());
         myStage.setScene(subtractionScene);
         myStage.show();
     }
