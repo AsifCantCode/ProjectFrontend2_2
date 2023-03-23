@@ -21,12 +21,20 @@ import java.io.IOException;
 public class ClassScene2 {
     @FXML
     private ComboBox<ClassroomDTO> courses;
+    private ClassroomDTO course2;
+    @FXML
+    private Button Logout;
+
+
+    @FXML
+    private Label coursename;
 
 
     @FXML
     private Label txt;
 
-
+    @FXML
+    private Label attendance_link;
     private int ass = 0;
 
     @FXML
@@ -58,12 +66,11 @@ public class ClassScene2 {
         //Getting the course name that is selected
         ClassroomDTO selected_course = courses.getValue();
         txt.setText(selected_course.toString());
-
-
+        course2 = selected_course;
 
        course.setText(selected_course.getCoursename());
-       teacher.setText("Mr. X , Designation");
-       due_ass.setText("Nothing due");
+       teacher.setText("Mr. X");
+       due_ass.setText("No due");
 
 
 
@@ -86,6 +93,19 @@ public class ClassScene2 {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
+
+    public void goToCore(ActionEvent event) throws IOException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scrolscrene.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        core obj = fxmlLoader.getController();
+        obj.setCdto(course2);
+
         myStage.setScene(subtractionScene);
         myStage.show();
     }
