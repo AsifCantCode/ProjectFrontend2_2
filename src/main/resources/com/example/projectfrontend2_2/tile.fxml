@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="384.0" style="-fx-background-radius: 25; -fx-background-color: #d4f1fa;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.tilecontrol">
+   <children>
+      <Label fx:id="poster" layoutX="122.0" prefHeight="35.0" prefWidth="274.0" text="Mr. X added a new post">
+         <font>
+            <Font name="Segoe UI Semibold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="date" layoutX="122.0" layoutY="28.0" text="September 27, 2002">
+         <font>
+            <Font name="Segoe UI Semilight" size="10.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="55.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@post.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
