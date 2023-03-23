@@ -24,13 +24,35 @@ public class ClassScene {
 
 
     @FXML
+    private Label name;
+    @FXML
+    private Label id;
+
+    @FXML
     private Label coursename;
     @FXML
     private Label txt;
 
     @FXML
     private Label attendance_link;
-    private int ass = 0;
+    private int ass = 0 , studentid;
+    private String nm;
+
+    public int getStudentid() {
+        return studentid;
+    }
+
+    public void setStudentid(int studentid) {
+        this.studentid = studentid;
+    }
+
+    public String getNm() {
+        return nm;
+    }
+
+    public void setNm(String nm) {
+        this.nm = nm;
+    }
 
     @FXML
     private Label semester;
@@ -46,20 +68,8 @@ public class ClassScene {
     @FXML
     private Label due_ass;
     public void initialize(){
-//        courses.getItems().addAll("CSE 4402: Visual Programming Lab",
-//                                    "CSE 4404: Algorithms Lab",
-//                                    "CSE 4407: System Analysis and Design",
-//                                    "CSE 4403: Algorithms",
-//                                    "CSE 4405: Data and Telecommunications",
-//                                    "EEE 4483: Digital Electronics and Pulse Techniques",
-//                                    "EEE 4484: Digital Electronics and Pulse Techniques Lab",
-//                                    "MATH 4441: Probability and Statistics",
-//                                    "HUM 4441: Engineering Ethics");
-
-        /*for(ClassroomDTO c : StudentLogin.all_classrooms){
-            courses.getItems().add(c);
-        }*/
-        //semester.setText("Current Semester : " + StudentLogin.studentDTO.getSemester());
+        id.setText("Signed in as " + (studentid));
+        name.setText("Welcome back, "+nm);
     }
     @FXML
     protected void onCourseClick(){
@@ -103,6 +113,19 @@ public class ClassScene {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
+
+    public void goToCourseReg(ActionEvent event) throws IOException, InterruptedException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("course-registration.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        CourseRegistration crg = fxmlLoader.getController();
+        crg.initialize();
+
         myStage.setScene(subtractionScene);
         myStage.show();
     }

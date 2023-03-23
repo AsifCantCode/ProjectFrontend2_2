@@ -4,8 +4,10 @@ import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -66,6 +68,28 @@ public class RequestMaker {
 
 
         System.out.println("here" + cdto.getDept());
+        return cdto;
+    }
+
+    public List<ClassroomDTO> fetch_all_classroom() throws IOException, InterruptedException {
+
+        gson = new Gson();
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/fetch/classroom/all" )).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        Type listtype = new TypeToken<List<ClassroomDTO>>(){}.getType();
+        System.out.println(response.body().toString());
+        List<ClassroomDTO> cdto = gson.fromJson(response.body().toString() , listtype);
+
+
+        System.out.println("here" );
         return cdto;
     }
 

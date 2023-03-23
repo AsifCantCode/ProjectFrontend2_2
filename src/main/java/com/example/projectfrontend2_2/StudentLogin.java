@@ -20,8 +20,7 @@ import java.util.List;
 
 public class StudentLogin {
 
-    private String pass = "iutcse";
-    private int userID = 1234;
+
 
     static StudentDTO studentDTO;
 
@@ -81,7 +80,13 @@ public class StudentLogin {
             Stage myStage = (Stage) root.getScene().getWindow();
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene.fxml"));
+
             Scene studentscene = new Scene(fxmlLoader.load());
+            ClassScene clasctrl = fxmlLoader.getController();
+            clasctrl.setNm(studentDTO.getName());
+            clasctrl.setStudentid(studentDTO.getStudid().intValue());
+            clasctrl.initialize();
+
             myStage.setScene(studentscene);
             myStage.show();
 
