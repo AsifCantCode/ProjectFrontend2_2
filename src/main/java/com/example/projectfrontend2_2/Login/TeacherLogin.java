@@ -1,6 +1,7 @@
 package com.example.projectfrontend2_2.Login;
 
 import com.example.projectfrontend2_2.Classroom.ClassScene;
+import com.example.projectfrontend2_2.Classroom.TeacherScene;
 import com.example.projectfrontend2_2.HelloApplication;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.http.RequestMaker;
@@ -71,7 +72,7 @@ public class TeacherLogin {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TeacherScene.fxml"));
 
             Scene studentscene = new Scene(fxmlLoader.load());
-            ClassScene clasctrl = fxmlLoader.getController();
+            TeacherScene clasctrl = fxmlLoader.getController();
 
 //            clasctrl.setAll_classrooms(all_classrooms);
 //            clasctrl.setNm(studentDTO.getName());
