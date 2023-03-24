@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.core">
    <children>
-      <ScrollPane layoutX="216.0" prefHeight="400.0" prefWidth="384.0" />
+      <ScrollPane fx:id="scroll" layoutX="216.0" prefHeight="400.0" prefWidth="384.0" />
       <VBox layoutX="58.0" layoutY="100.0" prefHeight="200.0" prefWidth="100.0" spacing="25.0">
          <children>
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Post" />

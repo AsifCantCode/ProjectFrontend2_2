@@ -4,7 +4,9 @@ import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.courseReg.CourseRegDTO;
+import com.example.projectfrontend2_2.post.PostDTO;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -116,4 +118,30 @@ public class RequestMaker {
         return cdto;
     }
 
+    public PostDTO fetch_post(Long id) throws IOException, InterruptedException {
+
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        gson = builder.create();
+
+
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/classroom/getpost/"+id )).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        Type listtype = new TypeToken<List<ClassroomDTO>>(){}.getType();
+        System.out.println(response.body().toString());
+        PostDTO pdto = gson.fromJson(response.body().toString() , PostDTO.class);
+
+
+        System.out.println("here" );
+        return pdto;
+    }
 }
