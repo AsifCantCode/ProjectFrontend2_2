@@ -3,6 +3,7 @@ module com.example.projectfrontend2_2 {
     requires javafx.fxml;
     requires com.google.gson;
     requires java.net.http;
+    requires java.sql;
 
 
     exports com.example.projectfrontend2_2;
