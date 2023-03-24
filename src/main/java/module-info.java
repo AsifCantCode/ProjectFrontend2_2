@@ -8,6 +8,7 @@ module com.example.projectfrontend2_2 {
 
     exports com.example.projectfrontend2_2;
     opens  com.example.projectfrontend2_2.Student to com.google.gson;
+    opens com.example.projectfrontend2_2.teacher to com.google.gson , javafx.fxml;
     opens com.example.projectfrontend2_2 to com.google.gson, javafx.fxml;
     exports com.example.projectfrontend2_2.Classroom;
     opens com.example.projectfrontend2_2.Classroom to com.google.gson, javafx.fxml;

@@ -5,6 +5,7 @@ import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.courseReg.CourseRegDTO;
 import com.example.projectfrontend2_2.post.PostDTO;
+import com.example.projectfrontend2_2.teacher.TeacherDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -45,6 +46,29 @@ public class RequestMaker {
 
             System.out.println(response.body().toString());
             StudentDTO sdto = gson.fromJson(response.body().toString() , StudentDTO.class);
+
+
+
+        return sdto;
+    }
+
+    public TeacherDTO login_attempt_teacher(LoginDTO ldto , String path) throws IOException, InterruptedException {
+
+        gson = new Gson();
+
+        System.out.println(gson.toJson(ldto));
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + path)).
+                POST(HttpRequest.BodyPublishers.ofString(gson.toJson(ldto))).
+                header("Content-Type" , "application/json").
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body().toString());
+        TeacherDTO sdto = gson.fromJson(response.body().toString() , TeacherDTO.class);
 
 
 

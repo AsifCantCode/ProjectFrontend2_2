@@ -21,6 +21,16 @@ public class ClassroomDTO {
     private Set<Long> posts = new HashSet<>();
 
 
+    private Long teacher;
+
+    public Long getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Long teacher) {
+        this.teacher = teacher;
+    }
+
     public Set<Long> getPosts() {
         return posts;
     }

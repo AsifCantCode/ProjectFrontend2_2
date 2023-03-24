@@ -5,6 +5,7 @@ import com.example.projectfrontend2_2.Classroom.TeacherScene;
 import com.example.projectfrontend2_2.HelloApplication;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.http.RequestMaker;
+import com.example.projectfrontend2_2.teacher.TeacherDTO;
 import com.google.gson.Gson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,45 +28,28 @@ public class TeacherLogin {
     @FXML
     private TextField passWord;
 
+    private TeacherDTO tdto;
     @FXML
     protected void goToTeacherScene(ActionEvent event) throws IOException, InterruptedException{
 
 
-        int inp_ID = Integer.parseInt(teacherID.getText());
-        String inp_pass = passWord.getText();
 
 
-//        LoginDTO ldto = new LoginDTO();
-//        Gson gson = new Gson();
-//        ldto.setStudentid(Long.parseLong(studentID.getText()));
-//        ldto.setPassword(passWord.getText());
-//
-//        System.out.println("here");
-//        String jackson = gson.toJson(ldto );
-//        System.out.println( jackson +" weifhwe weofhwoe woefw");
-//        RequestMaker rqm = new RequestMaker();
-//
-//        StudentDTO stdo = rqm.login_attempt(ldto , "/login/student");
-//        System.out.println(stdo.getStudid());
+
+        LoginDTO ldto = new LoginDTO();
+        Gson gson = new Gson();
+        ldto.setCommon_id(Long.parseLong(teacherID.getText()));
+        ldto.setPassword(passWord.getText());
 
 
-        //----------------------------------------------------------------------------------------------------------------
-        //Ekhane dummy login banaitesi
+        String jackson = gson.toJson(ldto );
+        System.out.println( jackson +" weifhwe weofhwoe woefw");
+        RequestMaker rqm = new RequestMaker();
 
-        if(inp_ID == 200041106 && inp_pass.equals("asif106"))
+        tdto = rqm.login_attempt_teacher(ldto , "/login/teacher");
+        if(tdto.getTeachid().equals(ldto.getCommon_id()) && tdto.getPassword().equals(ldto.getPassword()))
         {
-//            studentDTO = stdo;
-//
-//            List<Long> classroom_id = studentDTO.getClassroom_id();
-//
-//            System.out.println(classroom_id.size());
-//            for(Long x : classroom_id){
-//                System.out.println(x);
-//            }
-//            all_classrooms = new ArrayList<>();
-//            for(Long x : classroom_id){
-//                all_classrooms.add(rqm.fetch_classroom(x.intValue()));
-//            }
+
 
             Node root = (Node) event.getSource();
             Stage myStage = (Stage) root.getScene().getWindow();
@@ -72,7 +57,7 @@ public class TeacherLogin {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TeacherScene.fxml"));
 
             Scene studentscene = new Scene(fxmlLoader.load());
-            TeacherScene clasctrl = fxmlLoader.getController();
+            TeacherScene clasctrl = fxmlLoader.getController(); // next scene still not processed
 
 //            clasctrl.setAll_classrooms(all_classrooms);
 //            clasctrl.setNm(studentDTO.getName());

@@ -55,13 +55,13 @@ public class StudentLogin {
         ldto.setCommon_id(Long.parseLong(studentID.getText()));
         ldto.setPassword(passWord.getText());
 
-        System.out.println("here");
+
         String jackson = gson.toJson(ldto );
         System.out.println( jackson +" weifhwe weofhwoe woefw");
         RequestMaker rqm = new RequestMaker();
 
         StudentDTO stdo = rqm.login_attempt(ldto , "/login/student");
-        System.out.println(stdo.getStudid());
+
         if(stdo.getStudid().equals(ldto.getCommon_id()))
         {
             studentDTO = stdo;
@@ -69,9 +69,7 @@ public class StudentLogin {
             List<Long> classroom_id = studentDTO.getClassroom_id();
 
             System.out.println(classroom_id.size());
-            for(Long x : classroom_id){
-                System.out.println(x);
-            }
+
             all_classrooms = new ArrayList<>();
             for(Long x : classroom_id){
                 all_classrooms.add(rqm.fetch_classroom(x));
