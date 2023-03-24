@@ -74,7 +74,28 @@ public class RequestMaker {
         return false;
     }
 
-    public ClassroomDTO fetch_classroom(Integer Class_id) throws IOException, InterruptedException {
+    public void create_post(PostDTO pdto) throws IOException, InterruptedException {
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        gson = builder.create();
+
+
+        System.out.println(gson.toJson(pdto));
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/classroom/createpost")).
+                POST(HttpRequest.BodyPublishers.ofString(gson.toJson(pdto))).
+                header("Content-Type" , "application/json").
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+
+    }
+
+    public ClassroomDTO fetch_classroom(Long Class_id) throws IOException, InterruptedException {
 
         gson = new Gson();
 
@@ -144,4 +165,5 @@ public class RequestMaker {
         System.out.println("here" );
         return pdto;
     }
+
 }

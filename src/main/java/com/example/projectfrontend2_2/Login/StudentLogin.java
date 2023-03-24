@@ -75,7 +75,7 @@ public class StudentLogin {
             }
             all_classrooms = new ArrayList<>();
             for(Long x : classroom_id){
-                all_classrooms.add(rqm.fetch_classroom(x.intValue()));
+                all_classrooms.add(rqm.fetch_classroom(x));
             }
 
             Node root = (Node) event.getSource();
@@ -86,6 +86,7 @@ public class StudentLogin {
             Scene studentscene = new Scene(fxmlLoader.load());
             ClassScene clasctrl = fxmlLoader.getController();
 
+            clasctrl.setStudentDTO(studentDTO);
             clasctrl.setAll_classrooms(all_classrooms);
             clasctrl.setNm(studentDTO.getName());
             clasctrl.setStudentid(studentDTO.getStudid().intValue());

@@ -2,6 +2,7 @@ package com.example.projectfrontend2_2.Classroom;
 
 import com.example.projectfrontend2_2.HelloApplication;
 import com.example.projectfrontend2_2.Login.StudentLogin;
+import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.core;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +25,8 @@ public class ClassScene2 {
     @FXML
     private ComboBox<ClassroomDTO> courses;
     private ClassroomDTO course2;
+
+    private StudentDTO sdto;
     @FXML
     private Button Logout;
 
@@ -59,6 +62,14 @@ public class ClassScene2 {
 
     public void setAll_classrooms(List<ClassroomDTO> all_classrooms) {
         this.all_classrooms = all_classrooms;
+    }
+
+    public StudentDTO getSdto() {
+        return sdto;
+    }
+
+    public void setSdto(StudentDTO sdto) {
+        this.sdto = sdto;
     }
 
     @FXML
@@ -105,6 +116,7 @@ public class ClassScene2 {
         Scene subtractionScene = new Scene(fxmlLoader.load());
         core obj = fxmlLoader.getController();
         obj.setCdto(course2);
+        obj.setSdto(sdto);
         obj.init();
         myStage.setScene(subtractionScene);
         myStage.show();
