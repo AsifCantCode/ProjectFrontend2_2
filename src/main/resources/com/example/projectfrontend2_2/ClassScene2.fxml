@@ -38,6 +38,11 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <Button fx:id="Logout1" layoutX="281.0" layoutY="168.0" mnemonicParsing="false" onAction="#goToCore" prefHeight="43.0" prefWidth="77.0" style="-fx-background-color: #241ee6; -fx-background-radius: 21;" text="Let's Go" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
       <Label layoutX="38.0" layoutY="51.0" prefHeight="100.0" prefWidth="332.0" text="Classrooms">
