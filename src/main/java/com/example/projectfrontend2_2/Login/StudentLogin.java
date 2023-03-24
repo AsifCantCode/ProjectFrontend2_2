@@ -1,6 +1,8 @@
-package com.example.projectfrontend2_2;
+package com.example.projectfrontend2_2.Login;
 
+import com.example.projectfrontend2_2.Classroom.ClassScene;
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
+import com.example.projectfrontend2_2.HelloApplication;
 import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.http.RequestMaker;
@@ -24,7 +26,7 @@ public class StudentLogin {
 
     static StudentDTO studentDTO;
 
-    static List<ClassroomDTO> all_classrooms;
+    private List<ClassroomDTO> all_classrooms;
 
     @FXML
     private TextField studentID;
@@ -83,6 +85,8 @@ public class StudentLogin {
 
             Scene studentscene = new Scene(fxmlLoader.load());
             ClassScene clasctrl = fxmlLoader.getController();
+
+            clasctrl.setAll_classrooms(all_classrooms);
             clasctrl.setNm(studentDTO.getName());
             clasctrl.setStudentid(studentDTO.getStudid().intValue());
             clasctrl.initialize();

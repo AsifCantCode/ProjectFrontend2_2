@@ -1,6 +1,8 @@
-package com.example.projectfrontend2_2;
+package com.example.projectfrontend2_2.courseReg;
 
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
+import com.example.projectfrontend2_2.HelloApplication;
+import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.http.RequestMaker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,23 +22,28 @@ public class CourseRegistration {
     @FXML
     private ComboBox<ClassroomDTO> courses;
 
+    private  ClassroomDTO selected_course; // selected classroom to register
+
+    private Long current_student;
+
+
 
     @FXML
     private Label txt;
 
 
-    private int ass = 0;
+
 
     @FXML
     private Label course;
     @FXML
     private Label teacher;
-
+    private RequestMaker rqm= new RequestMaker();
 
     @FXML
     private Label due_ass;
     public void initialize() throws IOException, InterruptedException {
-        RequestMaker rqm= new RequestMaker();
+
         List<ClassroomDTO> classroomDTOS = rqm.fetch_all_classroom() ;
 
         courses.getItems().clear();
@@ -49,12 +56,10 @@ public class CourseRegistration {
     }
     @FXML
     protected void onCourseClick(){
-        //Getting the course name that is selected
-        ClassroomDTO selected_course = courses.getValue();
+        //Getting the course  that is selected
+
+        selected_course = courses.getValue();
         txt.setText(selected_course.toString());
-
-
-
         course.setText(selected_course.getCoursename());
         teacher.setText("Mr. X , Designation");
         due_ass.setText("Nothing due");
@@ -64,15 +69,13 @@ public class CourseRegistration {
     }
 
     @FXML
-    protected void goToRoutine(ActionEvent event) throws IOException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
+    public void onRegisterClick() throws IOException, InterruptedException {
+        CourseRegDTO crdto = new CourseRegDTO(selected_course.getId() , this.current_student);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Routine.fxml"));
-        Scene x = new Scene(fxmlLoader.load(), 800, 600);
-        myStage.setScene(x);
-        myStage.show();
+        rqm.course_register_attempt(crdto);
     }
+
+
 
     public void goToHome(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();
@@ -82,5 +85,13 @@ public class CourseRegistration {
         Scene subtractionScene = new Scene(fxmlLoader.load());
         myStage.setScene(subtractionScene);
         myStage.show();
+    }
+
+    public Long getCurrent_student() {
+        return current_student;
+    }
+
+    public void setCurrent_student(Long current_student) {
+        this.current_student = current_student;
     }
 }

@@ -5,6 +5,11 @@ package com.example.projectfrontend2_2.courseReg;
         private Long class_id;
         private Long stud_id;
 
+        public CourseRegDTO(Long class_id, Long stud_id) {
+            this.class_id = class_id;
+            this.stud_id = stud_id;
+        }
+
         public Long getClass_id() {
             return class_id;
         }
@@ -20,4 +25,6 @@ package com.example.projectfrontend2_2.courseReg;
         public void setStud_id(Long stud_id) {
             this.stud_id = stud_id;
         }
+
+
     }

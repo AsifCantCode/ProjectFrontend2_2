@@ -1,27 +1,26 @@
-package com.example.projectfrontend2_2;
+package com.example.projectfrontend2_2.Classroom;
 
-import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
-import com.example.projectfrontend2_2.Student.StudentDTO;
+import com.example.projectfrontend2_2.courseReg.CourseRegistration;
+import com.example.projectfrontend2_2.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ClassScene {
     @FXML
     private ComboBox<ClassroomDTO> courses;
 
+    private List<ClassroomDTO> all_classrooms;
 
     @FXML
     private Label name;
@@ -37,6 +36,15 @@ public class ClassScene {
     private Label attendance_link;
     private int ass = 0 , studentid;
     private String nm;
+
+
+    public List<ClassroomDTO> getAll_classrooms() {
+        return all_classrooms;
+    }
+
+    public void setAll_classrooms(List<ClassroomDTO> all_classrooms) {
+        this.all_classrooms = all_classrooms;
+    }
 
     public int getStudentid() {
         return studentid;
@@ -104,6 +112,11 @@ public class ClassScene {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene2.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
+
+        ClassScene2 clas2ctrl = fxmlLoader.getController();
+
+        clas2ctrl.setAll_classrooms(all_classrooms);
+        clas2ctrl.initialize();
         myStage.setScene(subtractionScene);
         myStage.show();
     }
@@ -125,7 +138,7 @@ public class ClassScene {
         Scene subtractionScene = new Scene(fxmlLoader.load());
         CourseRegistration crg = fxmlLoader.getController();
         crg.initialize();
-
+        crg.setCurrent_student(Integer.toUnsignedLong(this.studentid));
         myStage.setScene(subtractionScene);
         myStage.show();
     }

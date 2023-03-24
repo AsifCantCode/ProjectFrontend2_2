@@ -3,6 +3,7 @@ package com.example.projectfrontend2_2.http;
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
+import com.example.projectfrontend2_2.courseReg.CourseRegDTO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -48,6 +49,28 @@ public class RequestMaker {
         return sdto;
     }
 
+    public Boolean course_register_attempt(CourseRegDTO crdto) throws IOException, InterruptedException {
+
+        gson = new Gson();
+
+        System.out.println(gson.toJson(crdto));
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/fetch/classroom/register")).
+                POST(HttpRequest.BodyPublishers.ofString(gson.toJson(crdto))).
+                header("Content-Type" , "application/json").
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        String check = response.toString();
+
+        if(check.equals("Paisi")){
+            return true;
+        }
+        return false;
+    }
 
     public ClassroomDTO fetch_classroom(Integer Class_id) throws IOException, InterruptedException {
 

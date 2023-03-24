@@ -1,22 +1,20 @@
-package com.example.projectfrontend2_2;
+package com.example.projectfrontend2_2.Classroom;
 
-import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
-import com.example.projectfrontend2_2.Student.StudentDTO;
+import com.example.projectfrontend2_2.HelloApplication;
+import com.example.projectfrontend2_2.Login.StudentLogin;
+import com.example.projectfrontend2_2.core;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ClassScene2 {
     @FXML
@@ -25,7 +23,7 @@ public class ClassScene2 {
     @FXML
     private Button Logout;
 
-
+    private List<ClassroomDTO> all_classrooms;
     @FXML
     private Label coursename;
     @FXML
@@ -43,21 +41,22 @@ public class ClassScene2 {
     @FXML
     private Label due_ass;
     public void initialize(){
-//        courses.getItems().addAll("CSE 4402: Visual Programming Lab",
-//                                    "CSE 4404: Algorithms Lab",
-//                                    "CSE 4407: System Analysis and Design",
-//                                    "CSE 4403: Algorithms",
-//                                    "CSE 4405: Data and Telecommunications",
-//                                    "EEE 4483: Digital Electronics and Pulse Techniques",
-//                                    "EEE 4484: Digital Electronics and Pulse Techniques Lab",
-//                                    "MATH 4441: Probability and Statistics",
-//                                    "HUM 4441: Engineering Ethics");
 
-        for(ClassroomDTO c : StudentLogin.all_classrooms){
+        if(all_classrooms == null) return;
+        for(ClassroomDTO c : all_classrooms){
             courses.getItems().add(c);
         }
-        //semester.setText("Current Semester : " + StudentLogin.studentDTO.getSemester());
+
     }
+
+    public List<ClassroomDTO> getAll_classrooms() {
+        return all_classrooms;
+    }
+
+    public void setAll_classrooms(List<ClassroomDTO> all_classrooms) {
+        this.all_classrooms = all_classrooms;
+    }
+
     @FXML
     protected void onCourseClick(){
         //Getting the course name that is selected
