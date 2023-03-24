@@ -3,7 +3,6 @@ package com.example.projectfrontend2_2.Login;
 import com.example.projectfrontend2_2.Classroom.ClassScene;
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.HelloApplication;
-import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.http.RequestMaker;
 import com.google.gson.Gson;
@@ -53,7 +52,7 @@ public class StudentLogin {
 
         LoginDTO ldto = new LoginDTO();
         Gson gson = new Gson();
-        ldto.setStudentid(Long.parseLong(studentID.getText()));
+        ldto.setCommon_id(Long.parseLong(studentID.getText()));
         ldto.setPassword(passWord.getText());
 
         System.out.println("here");
@@ -63,7 +62,7 @@ public class StudentLogin {
 
         StudentDTO stdo = rqm.login_attempt(ldto , "/login/student");
         System.out.println(stdo.getStudid());
-        if(stdo.getStudid().equals(ldto.getStudentid()))
+        if(stdo.getStudid().equals(ldto.getCommon_id()))
         {
             studentDTO = stdo;
 
