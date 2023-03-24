@@ -97,7 +97,7 @@ public class ClassScene2 {
         myStage.show();
     }
 
-    public void goToCore(ActionEvent event) throws IOException {
+    public void goToCore(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
@@ -105,7 +105,7 @@ public class ClassScene2 {
         Scene subtractionScene = new Scene(fxmlLoader.load());
         core obj = fxmlLoader.getController();
         obj.setCdto(course2);
-
+        obj.init();
         myStage.setScene(subtractionScene);
         myStage.show();
     }

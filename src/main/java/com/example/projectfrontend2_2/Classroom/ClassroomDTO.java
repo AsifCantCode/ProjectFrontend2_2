@@ -17,6 +17,18 @@ public class ClassroomDTO {
     private String coursename;
     private Set<Long> students = new HashSet<>();
 
+
+    private Set<Long> posts = new HashSet<>();
+
+
+    public Set<Long> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Set<Long> posts) {
+        this.posts = posts;
+    }
+
     public Long getId() {
         return id;
     }
