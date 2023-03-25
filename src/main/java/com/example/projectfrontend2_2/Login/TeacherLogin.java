@@ -1,9 +1,7 @@
 package com.example.projectfrontend2_2.Login;
 
-import com.example.projectfrontend2_2.Classroom.ClassScene;
 import com.example.projectfrontend2_2.Classroom.TeacherScene;
 import com.example.projectfrontend2_2.HelloApplication;
-import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.http.RequestMaker;
 import com.example.projectfrontend2_2.teacher.TeacherDTO;
 import com.google.gson.Gson;
@@ -12,14 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TeacherLogin {
     @FXML
@@ -47,6 +41,7 @@ public class TeacherLogin {
         RequestMaker rqm = new RequestMaker();
 
         tdto = rqm.login_attempt_teacher(ldto , "/login/teacher");
+
         if(tdto.getTeachid().equals(ldto.getCommon_id()) && tdto.getPassword().equals(ldto.getPassword()))
         {
 
@@ -58,11 +53,9 @@ public class TeacherLogin {
 
             Scene studentscene = new Scene(fxmlLoader.load());
             TeacherScene clasctrl = fxmlLoader.getController(); // next scene still not processed
+            clasctrl.setTdto(tdto);
 
-//            clasctrl.setAll_classrooms(all_classrooms);
-//            clasctrl.setNm(studentDTO.getName());
-//            clasctrl.setStudentid(studentDTO.getStudid().intValue());
-//            clasctrl.initialize();
+            clasctrl.init();
 
             myStage.setScene(studentscene);
             myStage.show();
