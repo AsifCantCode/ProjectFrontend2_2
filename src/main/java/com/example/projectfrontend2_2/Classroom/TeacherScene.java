@@ -1,7 +1,6 @@
 package com.example.projectfrontend2_2.Classroom;
 
 import com.example.projectfrontend2_2.HelloApplication;
-import com.example.projectfrontend2_2.courseReg.CourseRegistration;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -106,17 +105,17 @@ public class TeacherScene {
         myStage.setScene(x);
         myStage.show();
     }
-    public void goToClass2(ActionEvent event) throws IOException {
+    public void goToTeacherScene2(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TeacherScene2.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
 
-        ClassScene2 clas2ctrl = fxmlLoader.getController();
+        TeacherCore clas2ctrl = fxmlLoader.getController();
 
-        clas2ctrl.setAll_classrooms(all_classrooms);
-        clas2ctrl.initialize();
+//        clas2ctrl.setAll_classrooms(all_classrooms);
+//        clas2ctrl.initialize();
         myStage.setScene(subtractionScene);
         myStage.show();
     }
@@ -126,19 +125,6 @@ public class TeacherScene {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
-        myStage.setScene(subtractionScene);
-        myStage.show();
-    }
-
-    public void goToCourseReg(ActionEvent event) throws IOException, InterruptedException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("course-registration.fxml"));
-        Scene subtractionScene = new Scene(fxmlLoader.load());
-        CourseRegistration crg = fxmlLoader.getController();
-        crg.initialize();
-        crg.setCurrent_student(Integer.toUnsignedLong(this.studentid));
         myStage.setScene(subtractionScene);
         myStage.show();
     }
