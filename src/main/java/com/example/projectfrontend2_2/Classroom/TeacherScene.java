@@ -109,10 +109,10 @@ public class TeacherScene {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TeacherScene2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TeacherCourses.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
 
-        TeacherCore clas2ctrl = fxmlLoader.getController();
+        TeacherCourses clas2ctrl = fxmlLoader.getController();
 
 //        clas2ctrl.setAll_classrooms(all_classrooms);
 //        clas2ctrl.initialize();
@@ -124,6 +124,16 @@ public class TeacherScene {
         Stage myStage = (Stage) root.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
+
+    public void goBack(ActionEvent event) throws IOException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TeacherScene.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
         myStage.setScene(subtractionScene);
         myStage.show();

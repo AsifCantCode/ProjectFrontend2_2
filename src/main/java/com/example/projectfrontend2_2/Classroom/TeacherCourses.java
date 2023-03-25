@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-public class ClassScene2 {
+public class TeacherCourses {
     @FXML
     private ComboBox<ClassroomDTO> courses;
     private ClassroomDTO course2;
@@ -71,24 +71,24 @@ public class ClassScene2 {
         txt.setText(selected_course.toString());
         course2 = selected_course;
 
-       course.setText(selected_course.getCoursename());
-       teacher.setText("Mr. X , Designation");
-       due_ass.setText("Nothing due");
+        course.setText(selected_course.getCoursename());
+        teacher.setText("Mr. X , Designation");
+        due_ass.setText("Nothing due");
 
 
 
     }
 
-    @FXML
-    protected void goToRoutine(ActionEvent event) throws IOException{
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Routine.fxml"));
-        Scene x = new Scene(fxmlLoader.load(), 800, 600);
-        myStage.setScene(x);
-        myStage.show();
-    }
+//    @FXML
+//    protected void goToRoutine(ActionEvent event) throws IOException{
+//        Node root = (Node) event.getSource();
+//        Stage myStage = (Stage) root.getScene().getWindow();
+//
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Routine.fxml"));
+//        Scene x = new Scene(fxmlLoader.load(), 800, 600);
+//        myStage.setScene(x);
+//        myStage.show();
+//    }
 
     public void goToHome(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();
@@ -104,9 +104,9 @@ public class ClassScene2 {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scrolscrene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TeacherScene2.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
-        core obj = fxmlLoader.getController();
+        TeacherCore obj = fxmlLoader.getController();
         obj.setCdto(course2);
         obj.init();
         myStage.setScene(subtractionScene);
@@ -117,7 +117,7 @@ public class ClassScene2 {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TeacherScene.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
         myStage.setScene(subtractionScene);
         myStage.show();
