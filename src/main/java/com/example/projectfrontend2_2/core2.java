@@ -110,6 +110,9 @@ public class core2 {
         Scene subtractionScene = new Scene(fxmlLoader.load());
         CreateAssignment obj = fxmlLoader.getController();
 
+        obj.setCdto(cdto);
+        obj.setTdto(tdto);
+
         myStage.setScene(subtractionScene);
         myStage.show();
     }

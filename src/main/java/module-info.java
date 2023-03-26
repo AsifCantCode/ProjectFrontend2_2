@@ -4,11 +4,14 @@ module com.example.projectfrontend2_2 {
     requires com.google.gson;
     requires java.net.http;
     requires java.sql;
+    requires org.apache.karaf.http.core;
 
 
     exports com.example.projectfrontend2_2;
+    exports com.example.projectfrontend2_2.http;
     opens  com.example.projectfrontend2_2.Student to com.google.gson;
     opens com.example.projectfrontend2_2.teacher to com.google.gson , javafx.fxml;
+    opens  com.example.projectfrontend2_2.http to org.apiguardian.api;
     opens com.example.projectfrontend2_2 to com.google.gson, javafx.fxml;
     exports com.example.projectfrontend2_2.Classroom;
     opens com.example.projectfrontend2_2.Classroom to com.google.gson, javafx.fxml;

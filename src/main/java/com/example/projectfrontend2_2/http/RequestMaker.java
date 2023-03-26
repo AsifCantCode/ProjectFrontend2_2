@@ -1,9 +1,11 @@
 package com.example.projectfrontend2_2.http;
 
+import com.example.projectfrontend2_2.Classroom.AssignmentDTO;
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Classroom.FileDTO;
 import com.example.projectfrontend2_2.Classroom.SubmissionDTO;
 import com.example.projectfrontend2_2.Login.LoginDTO;
+import com.example.projectfrontend2_2.MultipartUtility;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.courseReg.CourseRegDTO;
 import com.example.projectfrontend2_2.post.PostDTO;
@@ -12,14 +14,19 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.file.Path;
 import java.util.*;
 import java.net.*;
 import java.util.ArrayList;
+
 
 public class RequestMaker {
 
@@ -246,4 +253,48 @@ public class RequestMaker {
         return pdto;
     }
 
+    public void create_assignment(AssignmentDTO pdto) throws IOException, InterruptedException {
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        gson = builder.create();
+
+
+        System.out.println(gson.toJson(pdto));
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/classroom/createassignment")).
+                POST(HttpRequest.BodyPublishers.ofString(gson.toJson(pdto))).
+                header("Content-Type" , "application/json").
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+
+    }
+
+    public Long upload_file(String path) throws URISyntaxException, IOException, InterruptedException {
+
+        String charset = "UTF-8";
+        MultipartUtility multipart = new MultipartUtility(url + "/file/upload", charset);
+
+        File uploadFile1 = new File(path);
+//        multipart.addHeaderField("User-Agent", "CodeJava");
+//        multipart.addHeaderField("Test-Header", "Header-Value");
+//
+//        multipart.addFormField("description", "Cool Pictures");
+//        multipart.addFormField("keywords", "Java,upload,Spring");
+
+        multipart.addFilePart("file", uploadFile1);
+
+
+        List<String> response = multipart.finish();
+
+
+        System.out.println("SERVER REPLIED:");
+
+
+        return Long.parseLong(response.get(0));
+    }
 }

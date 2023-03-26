@@ -1,6 +1,8 @@
 package com.example.projectfrontend2_2.Classroom;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ClassroomDTO {
@@ -22,6 +24,16 @@ public class ClassroomDTO {
 
 
     private Long teacher;
+
+    private List<Long> assignmentsHereID = new ArrayList<>();
+
+    public List<Long> getAssignmentsHereID() {
+        return assignmentsHereID;
+    }
+
+    public void setAssignmentsHereID(List<Long> assignmentsHereID) {
+        this.assignmentsHereID = assignmentsHereID;
+    }
 
     public Long getTeacher() {
         return teacher;

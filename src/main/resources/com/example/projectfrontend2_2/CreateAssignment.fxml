@@ -11,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.Classroom.CreateAssignment">
     <children>
-        <Button layoutX="366.0" layoutY="545.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
+        <Button layoutX="366.0" layoutY="545.0" mnemonicParsing="false" onAction="#uploadClick" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -46,7 +46,7 @@
          </font>
       </Button>
       <ListView fx:id="listview" layoutX="18.0" layoutY="456.0" prefHeight="81.0" prefWidth="365.0" />
-      <DatePicker layoutX="499.0" layoutY="107.0" prefHeight="35.0" prefWidth="231.0" />
+      <DatePicker fx:id="dpkr" layoutX="499.0" layoutY="107.0" prefHeight="35.0" prefWidth="231.0" />
       <Label layoutX="495.0" layoutY="41.0" prefHeight="54.0" prefWidth="120.0" text="Deadline:">
          <font>
             <Font name="Segoe UI Black" size="22.0" />
