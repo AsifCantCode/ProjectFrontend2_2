@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goToPost" prefHeight="105.0" prefWidth="423.0" style="-fx-background-radius: 25; -fx-background-color: #d4f1fa;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.tilecontrol">
+    <children>
+        <Label fx:id="poster" layoutX="136.0" layoutY="14.0" prefHeight="21.0" prefWidth="284.0" text="Mr. X">
+            <font>
+                <Font name="Segoe UI Semibold" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="date" layoutX="137.0" layoutY="35.0" text="September 27, 2002">
+            <font>
+                <Font name="Segoe UI Semilight" size="10.0" />
+            </font>
+        </Label>
+        <Label fx:id="post" layoutX="136.0" layoutY="59.0" text="Random Text" />
+      <ImageView fitHeight="80.0" fitWidth="79.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@files.png" />
+         </image>
+      </ImageView>
+    </children>
+</Pane>
