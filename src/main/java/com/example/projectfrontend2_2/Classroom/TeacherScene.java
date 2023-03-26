@@ -55,6 +55,8 @@ public class TeacherScene {
         myStage.setScene(x);
         myStage.show();
     }
+
+    @FXML
     public void goToClass2(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
@@ -70,6 +72,8 @@ public class TeacherScene {
         myStage.setScene(subtractionScene);
         myStage.show();
     }
+
+    @FXML
     public void goToHome(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="563.0" maxWidth="738.0" minHeight="479.0" minWidth="630.0" prefHeight="555.0" prefWidth="738.0" style="-fx-background-color: #fcfcfc;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.Classroom.TeacherScene2">
+<AnchorPane maxHeight="563.0" maxWidth="738.0" minHeight="479.0" minWidth="630.0" prefHeight="555.0" prefWidth="738.0" style="-fx-background-color: #fcfcfc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.Classroom.TeacherScene2">
     <children>
         <ImageView fitHeight="577.0" fitWidth="738.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -38,7 +38,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="Logout1" layoutX="281.0" layoutY="168.0" mnemonicParsing="false" onAction="#goToCore" prefHeight="43.0" prefWidth="77.0" style="-fx-background-color: #241ee6; -fx-background-radius: 21;" text="Let's Go" textFill="WHITE">
+            <Button fx:id="Logout1" layoutX="281.0" layoutY="168.0" mnemonicParsing="false" onAction="#goToCore2" prefHeight="43.0" prefWidth="77.0" style="-fx-background-color: #241ee6; -fx-background-radius: 21;" text="Let's Go" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

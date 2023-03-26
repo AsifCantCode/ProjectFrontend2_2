@@ -5,6 +5,7 @@ import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.courseReg.CourseRegistration;
 import com.example.projectfrontend2_2.http.RequestMaker;
 import com.example.projectfrontend2_2.post.PostDTO;
+import com.example.projectfrontend2_2.teacher.TeacherDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,7 +32,7 @@ public class core2 {
     private TextArea txtArea;
 
 
-    private StudentDTO sdto;
+    private TeacherDTO tdto;
     private ClassroomDTO cdto;
     private RequestMaker rqm  = new RequestMaker();
     public ClassroomDTO getCdto() {
@@ -42,12 +43,12 @@ public class core2 {
         this.cdto = cdto;
     }
 
-    public StudentDTO getSdto() {
-        return sdto;
+    public TeacherDTO getSdto() {
+        return tdto;
     }
 
-    public void setSdto(StudentDTO sdto) {
-        this.sdto = sdto;
+    public void setSdto(TeacherDTO tdto) {
+        this.tdto = tdto;
     }
 
     public  void init() throws IOException, InterruptedException {
@@ -80,7 +81,9 @@ public class core2 {
         Date date = new Date();
 
         Timestamp ts = new Timestamp(date.getTime());
-        PostDTO pdto = new PostDTO(Long.parseLong("0") ,txtArea.getText() , ts ,sdto.getName() , "sad" , cdto.getId());
+
+        if(tdto == null) return;
+        PostDTO pdto = new PostDTO(Long.parseLong("0") ,txtArea.getText() , ts ,tdto.getName() , "sad" , cdto.getId());
 
         rqm.create_post(pdto);
         cdto = rqm.fetch_classroom(cdto.getId());

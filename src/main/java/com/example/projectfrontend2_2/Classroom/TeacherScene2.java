@@ -3,6 +3,7 @@ package com.example.projectfrontend2_2.Classroom;
 import com.example.projectfrontend2_2.HelloApplication;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.core;
+import com.example.projectfrontend2_2.core2;
 import com.example.projectfrontend2_2.http.RequestMaker;
 import com.example.projectfrontend2_2.teacher.TeacherDTO;
 import javafx.event.ActionEvent;
@@ -101,16 +102,19 @@ public class TeacherScene2 {
         myStage.show();
     }
 
+
+    @FXML
     public void goToCore2(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scrolscrene2.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
-        core obj = fxmlLoader.getController();
-//        obj.setCdto(course2);
-//        obj.setSdto(sdto);
-//        obj.init();
+        core2 obj = fxmlLoader.getController();
+        obj.setCdto(course2);
+        obj.setSdto(tdto);
+        System.out.println(tdto.getName());
+        obj.init();
         myStage.setScene(subtractionScene);
         myStage.show();
     }
