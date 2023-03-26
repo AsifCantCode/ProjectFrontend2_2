@@ -1,6 +1,7 @@
 package com.example.projectfrontend2_2;
 
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
+import com.example.projectfrontend2_2.Classroom.CreateAssignment;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.courseReg.CourseRegistration;
 import com.example.projectfrontend2_2.http.RequestMaker;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Priority;
@@ -30,6 +32,9 @@ public class core2 {
 
     @FXML
     private TextArea txtArea;
+
+    @FXML
+    private Button assign;
 
 
     private TeacherDTO tdto;
@@ -90,6 +95,18 @@ public class core2 {
         init();
     }
 
+    @FXML
+    public void createAssignment(ActionEvent event) throws IOException, InterruptedException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CreateAssignment.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        CreateAssignment obj = fxmlLoader.getController();
+
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
 
 
 }
