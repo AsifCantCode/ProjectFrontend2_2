@@ -1,6 +1,8 @@
 package com.example.projectfrontend2_2.http;
 
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
+import com.example.projectfrontend2_2.Classroom.FileDTO;
+import com.example.projectfrontend2_2.Classroom.SubmissionDTO;
 import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.courseReg.CourseRegDTO;
@@ -184,6 +186,60 @@ public class RequestMaker {
         Type listtype = new TypeToken<List<ClassroomDTO>>(){}.getType();
         System.out.println(response.body().toString());
         PostDTO pdto = gson.fromJson(response.body().toString() , PostDTO.class);
+
+
+        System.out.println("here" );
+        return pdto;
+    }
+
+    public FileDTO fetch_file_info(Long id) throws IOException, InterruptedException {
+
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        gson = builder.create();
+
+
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/file/fileinfo/"+id )).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body().toString());
+        FileDTO pdto = gson.fromJson(response.body().toString() , FileDTO.class);
+
+
+        System.out.println("here" );
+        return pdto;
+    }
+
+    public SubmissionDTO fetch_submission_info(Long id) throws IOException, InterruptedException {
+
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        gson = builder.create();
+
+
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/classroom/getsubmission/"+id )).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body().toString());
+        SubmissionDTO pdto = gson.fromJson(response.body().toString() , SubmissionDTO.class);
 
 
         System.out.println("here" );

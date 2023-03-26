@@ -77,6 +77,12 @@ public class core2 {
 
 
     @FXML
+    public void init_assignments(){
+
+    }
+
+
+    @FXML
     public void create_post() throws IOException, InterruptedException {
         Date date = new Date();
 
