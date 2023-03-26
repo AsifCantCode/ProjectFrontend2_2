@@ -101,11 +101,11 @@ public class TeacherScene2 {
         myStage.show();
     }
 
-    public void goToCore(ActionEvent event) throws IOException, InterruptedException {
+    public void goToCore2(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scrolscrene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scrolscrene2.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
         core obj = fxmlLoader.getController();
 //        obj.setCdto(course2);

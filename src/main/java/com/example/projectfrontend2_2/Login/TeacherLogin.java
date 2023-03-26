@@ -28,8 +28,7 @@ public class TeacherLogin {
 
 
 
-
-
+        System.out.println("Ekhane\n");
         LoginDTO ldto = new LoginDTO();
         Gson gson = new Gson();
         ldto.setCommon_id(Long.parseLong(teacherID.getText()));
@@ -41,11 +40,11 @@ public class TeacherLogin {
         RequestMaker rqm = new RequestMaker();
 
         tdto = rqm.login_attempt_teacher(ldto , "/login/teacher");
+        System.out.println("Ekhane2\n");
 
         if(tdto.getTeachid().equals(ldto.getCommon_id()) && tdto.getPassword().equals(ldto.getPassword()))
         {
-
-
+            //System.out.println("Ekhane4\n");
             Node root = (Node) event.getSource();
             Stage myStage = (Stage) root.getScene().getWindow();
 
@@ -53,6 +52,7 @@ public class TeacherLogin {
 
             Scene studentscene = new Scene(fxmlLoader.load());
             TeacherScene clasctrl = fxmlLoader.getController(); // next scene still not processed
+
             clasctrl.setTdto(tdto);
 
             clasctrl.init();

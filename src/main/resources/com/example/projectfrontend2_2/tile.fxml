@@ -6,21 +6,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="384.0" style="-fx-background-radius: 25; -fx-background-color: #d4f1fa;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.tilecontrol">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#goToPost" prefHeight="105.0" prefWidth="423.0" style="-fx-background-radius: 25; -fx-background-color: #d4f1fa;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.tilecontrol">
    <children>
-      <Label fx:id="poster" layoutX="122.0" prefHeight="35.0" prefWidth="274.0" text="Mr. X added a new post">
+      <Label fx:id="poster" layoutX="136.0" layoutY="14.0" prefHeight="21.0" prefWidth="284.0" text="Mr. X">
          <font>
             <Font name="Segoe UI Semibold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="date" layoutX="122.0" layoutY="28.0" text="September 27, 2002">
+      <Label fx:id="date" layoutX="137.0" layoutY="35.0" text="September 27, 2002">
          <font>
             <Font name="Segoe UI Semilight" size="10.0" />
          </font>
       </Label>
-      <ImageView fitHeight="55.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="post" layoutX="136.0" layoutY="59.0" text="Random Text" />
+      <ImageView fitHeight="93.0" fitWidth="99.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@post.png" />
+            <Image url="@assignment.png" />
          </image>
       </ImageView>
    </children>

@@ -1,26 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.core">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.core">
    <children>
-      <ScrollPane fx:id="scroll" layoutX="216.0" layoutY="89.0" prefHeight="311.0" prefWidth="384.0" />
-      <VBox layoutX="58.0" layoutY="100.0" prefHeight="200.0" prefWidth="100.0" spacing="25.0">
+      <ImageView fitHeight="409.0" fitWidth="600.0" layoutX="1.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bg.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="216.0" layoutY="-1.0" prefHeight="91.0" prefWidth="384.0" />
+      <Label layoutX="24.0" layoutY="9.0" prefHeight="63.0" prefWidth="364.0" text="Classroom Title">
+         <font>
+            <Font name="Segoe UI Black" size="37.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="scroll" layoutX="97.0" layoutY="65.0" prefHeight="270.0" prefWidth="409.0" />
+      <TextArea fx:id="txtArea" layoutX="97.0" layoutY="348.0" prefHeight="1.0" prefWidth="250.0" promptText="Type Something.." />
+      <Button layoutX="361.0" layoutY="348.0" mnemonicParsing="false" onAction="#create_post" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <VBox layoutX="517.0" layoutY="90.0" prefHeight="95.0" prefWidth="102.0" spacing="25.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Post" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" text="Assignment" />
+            <Button fx:id="go2" mnemonicParsing="false" onAction="#goToClass2" prefHeight="28.0" prefWidth="73.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="go1" mnemonicParsing="false" onAction="#goToClass2" prefHeight="27.0" prefWidth="74.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Assignment" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
-      <AnchorPane layoutX="216.0" layoutY="-1.0" prefHeight="91.0" prefWidth="384.0">
-         <children>
-            <TextArea fx:id="txtArea" layoutX="14.0" layoutY="13.0" prefHeight="66.0" prefWidth="261.0" />
-            <Button layoutX="281.0" layoutY="54.0" mnemonicParsing="false" onAction="#create_post" text="Post" />
-         </children>
-      </AnchorPane>
    </children>
 </Pane>

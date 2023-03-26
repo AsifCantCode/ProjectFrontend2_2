@@ -23,7 +23,7 @@ import java.util.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-public class core {
+public class core2 {
     @FXML
     private ScrollPane scroll;
 
