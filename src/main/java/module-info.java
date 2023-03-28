@@ -4,6 +4,8 @@ module com.example.projectfrontend2_2 {
     requires com.google.gson;
     requires java.net.http;
     requires java.sql;
+    requires java.mail;
+    requires java.desktop;
 
 
     exports com.example.projectfrontend2_2;
