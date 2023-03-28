@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <AnchorPane layoutX="216.0" layoutY="-1.0" prefHeight="91.0" prefWidth="384.0" />
-      <Label layoutX="24.0" layoutY="9.0" prefHeight="63.0" prefWidth="364.0" text="Classroom Title">
+      <Label fx:id="title" layoutX="24.0" layoutY="9.0" prefHeight="63.0" prefWidth="364.0" text="Classroom Title">
          <font>
             <Font name="Segoe UI Black" size="37.0" />
          </font>
@@ -33,12 +33,12 @@
       </Button>
       <VBox layoutX="517.0" layoutY="90.0" prefHeight="95.0" prefWidth="102.0" spacing="25.0">
          <children>
-            <Button fx:id="go2" mnemonicParsing="false" prefHeight="28.0" prefWidth="73.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
+            <Button fx:id="go2" mnemonicParsing="false" onAction="#onPostClick" prefHeight="28.0" prefWidth="73.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
             </Button>
-            <Button fx:id="go1" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Assignment" textFill="WHITE">
+            <Button fx:id="go1" mnemonicParsing="false" onAction="#onAssignmentClick" prefHeight="27.0" prefWidth="74.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Assignment" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
