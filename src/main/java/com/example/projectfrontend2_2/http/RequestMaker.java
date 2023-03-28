@@ -292,7 +292,7 @@ public class RequestMaker {
         List<String> response = multipart.finish();
 
 
-        System.out.println("SERVER REPLIED:");
+        System.out.println("SERVER REPLIED:" + Long.parseLong(response.get(0)));
 
 
         return Long.parseLong(response.get(0));

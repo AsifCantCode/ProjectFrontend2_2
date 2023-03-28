@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Priority;
@@ -29,6 +30,17 @@ public class core {
 
     @FXML
     private TextArea txtArea;
+
+    public Label getTitle() {
+        return title;
+    }
+
+    public void setTitle(Label title) {
+        this.title = title;
+    }
+
+    @FXML
+    private Label title;
 
 
     private StudentDTO sdto;
@@ -75,6 +87,7 @@ public class core {
     }
 
 
+
     @FXML
     public void create_post() throws IOException, InterruptedException {
         Date date = new Date();
@@ -87,6 +100,36 @@ public class core {
         init();
     }
 
+
+
+    //FXMLLoader fxm = new FXMLLoader(HelloApplication.class.getResource("assignment_tile.fxml"));
+
+    public  void init2() throws IOException, InterruptedException {
+
+        VBox vb = new VBox();
+        vb.setSpacing(15);
+            FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("assignment_tile.fxml"));
+
+            Node e = fxl.load();
+        System.out.println("jo");
+            assignment_tile_control astc = fxl.getController();
+            //PostDTO p = rqm.fetch_post(id);
+
+        astc.getDate().setText("20 Jan 2002");
+        astc.getTeacher().setText("Samnun Azfar");
+        astc.getAssignment_title().setText("Balsal");
+            vb.getChildren().add(e);
+            //VBox.setVgrow(e, Priority.ALWAYS);
+        scroll.setContent(vb);
+    }
+
+
+    public void onAssignmentClick() throws IOException, InterruptedException {
+        init2();
+    }
+    public void onPostClick() throws IOException, InterruptedException {
+        init();
+    }
 
 
 }

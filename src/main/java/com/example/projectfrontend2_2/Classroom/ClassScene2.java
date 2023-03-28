@@ -117,7 +117,8 @@ public class ClassScene2 {
         core obj = fxmlLoader.getController();
         obj.setCdto(course2);
         obj.setSdto(sdto);
-        obj.init();
+        obj.getTitle().setText(course2.getCoursename());
+        //obj.init();
         myStage.setScene(subtractionScene);
         myStage.show();
     }
