@@ -4,26 +4,35 @@ import com.example.projectfrontend2_2.http.RequestMaker;
 import com.example.projectfrontend2_2.teacher.TeacherDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Timer;
+import java.time.*;
+import java.util.*;
 
 public class CreateAssignment {
     @FXML
     private Button files;
 
     @FXML
+    private TextField title;
+
+    @FXML
+    private TextField instr;
+
+    @FXML
+    private TextField marks;
+
+
+    @FXML
     private DatePicker dpkr;
+
+    private LocalDate date;
+    private Timestamp ts;
 
     private ClassroomDTO cdto;
     private TeacherDTO tdto;
@@ -55,17 +64,42 @@ public class CreateAssignment {
         }
     }
 
-    public void uploadClick(){
+    public void uploadClick() throws IOException, InterruptedException {
 
         AssignmentDTO adto = new AssignmentDTO();
         adto.setClassroomid(cdto.getId());
+        adto.setDeadline(ts);
+        adto.setTitle(title.getText());
+        adto.setInstruction(instr.getText());
+        adto.setNeededFilesID(fileID);
+        adto.setMarks(Float.parseFloat(marks.getText()));
 
-        Timestamp ts = new Timestamp(dpkr.getValue().toEpochDay() );
+        rqm.create_assignment(adto);
+
+
+
+
+
         System.out.println(ts.toString());
 
 
     }
 
+
+    public void datePickerClick(){
+        date = dpkr.getValue();
+
+
+        Instant instant = Instant.from(date.atStartOfDay(ZoneId.systemDefault()));
+        LocalDateTime dat = LocalDateTime.ofInstant(instant , ZoneOffset.systemDefault());
+
+
+        dat = dat.minusSeconds(1);
+
+        ts = Timestamp.valueOf(dat);
+
+        System.out.println(ts);
+    }
     public ClassroomDTO getCdto() {
         return cdto;
     }

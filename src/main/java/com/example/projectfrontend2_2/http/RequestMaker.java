@@ -198,6 +198,32 @@ public class RequestMaker {
         System.out.println("here" );
         return pdto;
     }
+    public AssignmentDTO fetch_ass(Long id) throws IOException, InterruptedException {
+
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        gson = builder.create();
+
+
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/classroom/getassignment/"+id )).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body().toString());
+        AssignmentDTO pdto = gson.fromJson(response.body().toString() , AssignmentDTO.class);
+
+
+
+        return pdto;
+    }
 
     public FileDTO fetch_file_info(Long id) throws IOException, InterruptedException {
 

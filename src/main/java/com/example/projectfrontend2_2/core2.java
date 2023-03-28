@@ -82,7 +82,14 @@ public class core2 {
 
 
     @FXML
-    public void init_assignments(){
+    public void init_assignments() throws IOException, InterruptedException {
+
+
+
+        for(Long x : cdto.getAssignmentsHereID()){
+            rqm.fetch_ass(x);
+        }
+
 
     }
 
@@ -101,6 +108,20 @@ public class core2 {
         init();
     }
 
+
+    @FXML
+    public void do_grading(ActionEvent event) throws IOException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("GradeScene.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        GradeScene gs = fxmlLoader.getController();
+        gs.init();
+
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
     @FXML
     public void createAssignment(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();

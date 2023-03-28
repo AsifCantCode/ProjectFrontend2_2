@@ -24,12 +24,17 @@
                   <Font name="System Bold" size="10.0" />
                </font>
             </Button>
-            <Button fx:id="go1" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Assignment" textFill="WHITE">
+            <Button fx:id="go1" mnemonicParsing="false" onAction="#init_assignments" prefHeight="27.0" prefWidth="74.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Assignment" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
             </Button>
             <Button fx:id="assign" layoutX="10.0" layoutY="63.0" mnemonicParsing="false" onAction="#createAssignment" prefHeight="27.0" prefWidth="74.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Assign" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#do_grading" prefHeight="27.0" prefWidth="74.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Grade" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
