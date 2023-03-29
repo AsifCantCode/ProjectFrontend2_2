@@ -7,46 +7,90 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.core2">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.core2">
     <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@bg.jpg" />
-         </image>
-      </ImageView>
-        <VBox layoutX="520.0" layoutY="86.0" prefHeight="95.0" prefWidth="102.0" spacing="25.0">
-            <children>
-            <Button fx:id="go2" mnemonicParsing="false" prefHeight="28.0" prefWidth="73.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Button>
-            <Button fx:id="go1" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Assignment" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Button>
-            <Button fx:id="assign" layoutX="10.0" layoutY="63.0" mnemonicParsing="false" onAction="#createAssignment" prefHeight="27.0" prefWidth="74.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Assign" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="10.0" />
-               </font>
-            </Button>
-            </children>
-        </VBox>
-        <ScrollPane fx:id="scroll" layoutX="91.0" layoutY="71.0" prefHeight="270.0" prefWidth="409.0" />
-          <TextArea fx:id="txtArea" layoutX="91.0" layoutY="347.0" prefHeight="15.0" prefWidth="250.0" promptText="Type Something.." />
-      <Label layoutX="14.0" layoutY="-1.0" prefHeight="63.0" prefWidth="364.0" text="Classroom Title">
-         <font>
-            <Font name="Segoe UI Black" size="37.0" />
-         </font>
-      </Label>
-      <Button fx:id="go" layoutX="351.0" layoutY="348.0" mnemonicParsing="false" onAction="#create_post" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
+      <Circle fill="#9212b854" layoutX="576.0" layoutY="-29.0" radius="165.0" stroke="WHITE" strokeType="INSIDE" />
+        <ScrollPane fx:id="scroll" layoutX="240.0" layoutY="169.0" prefHeight="508.0" prefWidth="643.0" />
+      <Button fx:id="go" layoutX="799.0" layoutY="110.0" mnemonicParsing="false" onAction="#create_post" prefHeight="26.0" prefWidth="68.0" stylesheets="@beguni.css" text="Post" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
+      <Pane prefHeight="678.0" prefWidth="240.0" style="-fx-background-color: purple;">
+         <children>
+            <Circle layoutX="118.0" layoutY="205.0" radius="100.0" stroke="WHITE" strokeType="INSIDE">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5370370149612427" green="0.6296296119689941" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <ImageView fitHeight="180.0" fitWidth="222.0" layoutX="28.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@man.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="Logout" alignment="CENTER" layoutX="-1.0" layoutY="602.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutY="322.0" prefHeight="35.0" prefWidth="240.0" text="Samnun" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="id" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="357.0" prefHeight="17.0" prefWidth="240.0" text="200041130" textAlignment="CENTER" textFill="#fce4e4">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </Label>
+            <Circle fill="#ffffff00" layoutX="130.0" layoutY="205.0" radius="116.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="119.0" layoutY="-61.0" radius="100.0" stroke="WHITE" strokeType="INSIDE" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="49.0" prefHeight="17.0" prefWidth="240.0" text="Teacher Portal" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="28.0" />
+               </font>
+            </Label>
+            <Button fx:id="go2" layoutY="380.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Post" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="go1" layoutX="-1.0" layoutY="453.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assignment" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="assign" layoutY="527.0" mnemonicParsing="false" onAction="#createAssignment" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assign" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+          <TextArea fx:id="txtArea" layoutX="252.0" layoutY="109.0" prefHeight="38.0" prefWidth="530.0" promptText="Type Something.." />
+      <Label fx:id="title" layoutX="252.0" layoutY="29.0" prefHeight="63.0" prefWidth="629.0" text="Classroom Title">
+         <font>
+            <Font name="Segoe UI Semibold" size="36.0" />
+         </font>
+      </Label>
     </children>
 </Pane>

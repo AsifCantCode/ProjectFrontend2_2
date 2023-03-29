@@ -6,20 +6,20 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#onItemPressed" prefHeight="105.0" prefWidth="423.0" style="-fx-background-radius: 25; -fx-background-color: #d4f1fa;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.assignment_tile_control">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#onItemPressed" prefHeight="139.0" prefWidth="637.0" style="-fx-background-color: #e6cffa;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.assignment_tile_control">
     <children>
-        <Label fx:id="teacher" layoutX="136.0" layoutY="14.0" prefHeight="21.0" prefWidth="284.0" text="Mr. X">
+        <Label fx:id="teacher" layoutX="100.0" layoutY="12.0" prefHeight="21.0" prefWidth="284.0" text="Mr. X">
             <font>
-                <Font name="Segoe UI Semibold" size="14.0" />
+                <Font name="Segoe UI Semibold" size="23.0" />
             </font>
         </Label>
-        <Label fx:id="date" layoutX="137.0" layoutY="35.0" text="September 27, 2002">
+        <Label fx:id="date" layoutX="100.0" layoutY="39.0" text="September 27, 2002">
             <font>
-                <Font name="Segoe UI Semilight" size="10.0" />
+                <Font name="Calibri" size="12.0" />
             </font>
         </Label>
-        <Label fx:id="assignment_title" layoutX="136.0" layoutY="59.0" text="Random Text" />
-      <ImageView fitHeight="80.0" fitWidth="79.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+        <Label fx:id="assignment_title" alignment="TOP_LEFT" layoutX="100.0" layoutY="61.0" prefHeight="79.0" prefWidth="536.0" text="Random Text" />
+      <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="23.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@files.png" />
          </image>

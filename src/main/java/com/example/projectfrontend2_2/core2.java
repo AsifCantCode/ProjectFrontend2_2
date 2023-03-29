@@ -117,5 +117,15 @@ public class core2 {
         myStage.show();
     }
 
+    public void goToHome(ActionEvent event) throws IOException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
+
 
 }

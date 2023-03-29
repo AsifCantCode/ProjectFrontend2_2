@@ -78,8 +78,8 @@ public class ClassScene {
     @FXML
     private Label due_ass;
     public void initialize(){
-        id.setText("Signed in as " + (studentid));
-        name.setText("Welcome back, "+nm);
+        id.setText(" " + (studentid));
+        name.setText(nm);
     }
     @FXML
     protected void onCourseClick(){
@@ -117,9 +117,13 @@ public class ClassScene {
 
         ClassScene2 clas2ctrl = fxmlLoader.getController();
 
-        clas2ctrl.setAll_classrooms(all_classrooms);
         clas2ctrl.setSdto(studentDTO);
+        clas2ctrl.setAll_classrooms(all_classrooms);
+
+        clas2ctrl.setNm(studentDTO.getName());
+        clas2ctrl.setStudentid(studentDTO.getStudid().intValue());
         clas2ctrl.initialize();
+
         myStage.setScene(subtractionScene);
         myStage.show();
     }
@@ -140,8 +144,15 @@ public class ClassScene {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("course-registration.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
         CourseRegistration crg = fxmlLoader.getController();
-        crg.initialize();
         crg.setCurrent_student(Integer.toUnsignedLong(this.studentid));
+
+        crg.setSdto(studentDTO);
+        crg.setNm(studentDTO.getName());
+        crg.setStudentid(studentDTO.getStudid().intValue());
+
+
+        crg.initialize();
+
         myStage.setScene(subtractionScene);
         myStage.show();
     }
