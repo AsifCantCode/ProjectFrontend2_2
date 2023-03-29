@@ -2,6 +2,7 @@ package com.example.projectfrontend2_2;
 
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Classroom.CreateAssignment;
+import com.example.projectfrontend2_2.Classroom.TeacherScene2;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.courseReg.CourseRegistration;
 import com.example.projectfrontend2_2.http.RequestMaker;
@@ -35,6 +36,12 @@ public class core2 {
 
     @FXML
     private Button assign;
+
+    @FXML
+    private Button back;
+
+    @FXML
+    private Button attendance;
 
 
     private TeacherDTO tdto;
@@ -103,6 +110,32 @@ public class core2 {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CreateAssignment.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
         CreateAssignment obj = fxmlLoader.getController();
+
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
+
+    @FXML
+    public void GoBack(ActionEvent event) throws IOException, InterruptedException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TeacherScene2.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        TeacherScene2 obj = fxmlLoader.getController();
+
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
+
+    @FXML
+    public void GoToAttendance(ActionEvent event) throws IOException, InterruptedException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Attendance.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        Attendance obj = fxmlLoader.getController();
 
         myStage.setScene(subtractionScene);
         myStage.show();
