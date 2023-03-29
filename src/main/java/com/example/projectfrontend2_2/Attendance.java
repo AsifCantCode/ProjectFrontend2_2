@@ -48,7 +48,7 @@ public class Attendance {
         }
         scroll.setContent(vb);
     }
-
+//ll
     public void goBack(ActionEvent event) throws IOException{
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
