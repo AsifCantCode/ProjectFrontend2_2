@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="25.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.AttendanceTile">
+   <children>
+      <Label fx:id="ID" alignment="CENTER" layoutY="4.0" prefHeight="25.0" prefWidth="195.0" text="ID">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="attendance" layoutX="328.0" layoutY="6.0" mnemonicParsing="false" />
+   </children>
+</AnchorPane>

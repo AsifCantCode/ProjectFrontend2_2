@@ -144,6 +144,17 @@ public class core {
         init();
     }
 
+    public void goToSubmitAss(ActionEvent event) throws IOException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AssSubmit.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
+
+
 
 
     //FXMLLoader fxm = new FXMLLoader(HelloApplication.class.getResource("assignment_tile.fxml"));
