@@ -5,6 +5,8 @@ module com.example.projectfrontend2_2 {
     requires java.net.http;
     requires java.sql;
     requires org.apache.karaf.http.core;
+    requires java.mail;
+    requires java.desktop;
 
 
     exports com.example.projectfrontend2_2;
