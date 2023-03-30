@@ -24,6 +24,16 @@ public class CourseRegistration {
 
     private  ClassroomDTO selected_course; // selected classroom to register
 
+    public StudentDTO getSdto() {
+        return sdto;
+    }
+
+    public void setSdto(StudentDTO sdto) {
+        this.sdto = sdto;
+    }
+
+    private StudentDTO sdto;
+
     private Long current_student;
 
 
@@ -42,6 +52,32 @@ public class CourseRegistration {
 
     @FXML
     private Label due_ass;
+
+    @FXML
+    private Label name;
+    @FXML
+    private Label id;
+
+    public int getStudentid() {
+        return studentid;
+    }
+
+    public void setStudentid(int studentid) {
+        this.studentid = studentid;
+    }
+
+    public String getNm() {
+        return nm;
+    }
+
+    public void setNm(String nm) {
+        this.nm = nm;
+    }
+
+    @FXML
+    private int studentid;
+    private String nm;
+
     public void initialize() throws IOException, InterruptedException {
 
         List<ClassroomDTO> classroomDTOS = rqm.fetch_all_classroom() ;
@@ -50,7 +86,8 @@ public class CourseRegistration {
         for(ClassroomDTO x : classroomDTOS){
             courses.getItems().add(x);
         }
-
+        id.setText(" " + (studentid));
+        name.setText(nm);
 
 
     }

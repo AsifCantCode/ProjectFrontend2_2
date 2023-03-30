@@ -40,8 +40,8 @@ public class TeacherScene {
             return;
         }
 
-        id.setText("Signed in as " + tdto.getTeachid());
-        name.setText("Welcome back, "+tdto.getName());
+        id.setText(" " + tdto.getTeachid());
+        name.setText(tdto.getName());
     }
 
 
@@ -68,6 +68,8 @@ public class TeacherScene {
 
         //clas2ctrl.setAll_classrooms(all_classrooms);
         clas2ctrl.setTdto(tdto);
+        clas2ctrl.setNm(tdto.getName());
+        clas2ctrl.setTeacherid(tdto.getTeachid().intValue());
         clas2ctrl.init();
         myStage.setScene(subtractionScene);
         myStage.show();

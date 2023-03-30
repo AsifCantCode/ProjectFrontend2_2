@@ -49,6 +49,30 @@ public class TeacherScene2 {
     @FXML
     private Label due_ass;
 
+    @FXML
+    private Label name;
+    @FXML
+    private Label id;
+    private String nm;
+
+    public String getNm() {
+        return nm;
+    }
+
+    public void setNm(String nm) {
+        this.nm = nm;
+    }
+
+    public int getTeacherid() {
+        return teacherid;
+    }
+
+    public void setTeacherid(int teacherid) {
+        this.teacherid = teacherid;
+    }
+
+    private int teacherid;
+
 
     public TeacherDTO getTdto() {
         return tdto;
@@ -65,6 +89,8 @@ public class TeacherScene2 {
         for(Long x : classes){
             courses.getItems().add(rqm.fetch_classroom(x));
         }
+        id.setText(" " + (teacherid));
+        name.setText(nm);
     }
     @FXML
     protected void onCourseClick(){

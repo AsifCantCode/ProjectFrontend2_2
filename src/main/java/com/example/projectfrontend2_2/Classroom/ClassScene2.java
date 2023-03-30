@@ -44,6 +44,31 @@ public class ClassScene2 {
     @FXML
     private Label teacher;
 
+    public int getStudentid() {
+        return studentid;
+    }
+
+    public void setStudentid(int studentid) {
+        this.studentid = studentid;
+    }
+
+    public String getNm() {
+        return nm;
+    }
+
+    public void setNm(String nm) {
+        this.nm = nm;
+    }
+
+    @FXML
+    private int studentid;
+    private String nm;
+
+    @FXML
+    private Label name;
+    @FXML
+    private Label id;
+
 
     @FXML
     private Label due_ass;
@@ -53,6 +78,8 @@ public class ClassScene2 {
         for(ClassroomDTO c : all_classrooms){
             courses.getItems().add(c);
         }
+        id.setText(" " + (studentid));
+        name.setText(nm);
 
     }
 
@@ -118,6 +145,9 @@ public class ClassScene2 {
         obj.setCdto(course2);
         obj.setSdto(sdto);
         obj.getTitle().setText(course2.getCoursename());
+        obj.setNm(sdto.getName());
+        obj.setStudentid(sdto.getStudid().intValue());
+        obj.initialize();
         //obj.init();
         myStage.setScene(subtractionScene);
         myStage.show();
