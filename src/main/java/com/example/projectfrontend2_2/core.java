@@ -65,8 +65,8 @@ public class core {
     public  void init() throws IOException, InterruptedException {
 
         VBox vb = new VBox();
-        vb.setSpacing(15);
-        //vb.setPadding(new Insets(2,0,2,0));
+        vb.setSpacing(10);
+        vb.setPadding(new Insets(0,0,0,5));
         List<Long> classlist = new ArrayList<>();
         classlist.addAll(cdto.getPosts());
         Collections.sort(classlist , (a , b)->{
@@ -107,18 +107,20 @@ public class core {
     public  void init2() throws IOException, InterruptedException {
 
         VBox vb = new VBox();
-        vb.setSpacing(15);
+        vb.setSpacing(10);
+        vb.setPadding(new Insets(0,0,0,5));
+
+        for(Long x : cdto.getAssignmentsHereID()){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("assignment_tile.fxml"));
-
             Node e = fxl.load();
-        System.out.println("jo");
+            System.out.println("jo");
             assignment_tile_control astc = fxl.getController();
-            //PostDTO p = rqm.fetch_post(id);
-
-        astc.getDate().setText("20 Jan 2002");
-        astc.getTeacher().setText("Samnun Azfar");
-        astc.getAssignment_title().setText("Balsal");
+            astc.setAdto(rqm.fetch_ass(x));
+            astc.setSdto(sdto);
+            astc.init();
             vb.getChildren().add(e);
+        }
+
             //VBox.setVgrow(e, Priority.ALWAYS);
         scroll.setContent(vb);
     }

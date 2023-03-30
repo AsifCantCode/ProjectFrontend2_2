@@ -38,6 +38,8 @@ public class GradeScene {
 
 
     public  void init() throws IOException {
+
+
         VBox vb = new VBox();
         vb.setSpacing(5);
         for(int i = 0 ; i < 10 ; i++){
@@ -51,6 +53,21 @@ public class GradeScene {
         }
 
         submissions.setContent(vb);
+
+
+        VBox vb2 = new VBox();
+        vb2.setSpacing(5);
+        for(int i = 0 ; i < 10 ; i++){
+            FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("FileView.fxml"));
+            Node e = fxl.load();
+            FileView tc = fxl.getController();
+
+
+            vb2.getChildren().add(e);
+            VBox.setVgrow(e, Priority.ALWAYS);
+        }
+
+        files.setContent(vb2);
     }
 
 }

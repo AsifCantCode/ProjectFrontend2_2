@@ -117,6 +117,7 @@ public class core2 {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("GradeScene.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
         GradeScene gs = fxmlLoader.getController();
+
         gs.init();
 
         myStage.setScene(subtractionScene);

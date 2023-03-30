@@ -8,7 +8,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="677.0" prefWidth="1047.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.GradeScene">
    <children>
       <VBox layoutY="90.0" prefHeight="586.0" prefWidth="410.0">
@@ -42,7 +41,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="files" layoutX="526.0" layoutY="226.0" prefHeight="143.0" prefWidth="350.0" />
+      <ScrollPane fx:id="files" layoutX="526.0" layoutY="226.0" prefHeight="143.0" prefWidth="350.0" stylesheets="@scrollbar.css" />
       <TextField fx:id="grade" layoutX="539.0" layoutY="410.0" prefHeight="26.0" prefWidth="105.0" />
       <Label layoutX="439.0" layoutY="407.0" text="Grade :">
          <font>

@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.core">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.core">
    <children>
-      <ImageView fitHeight="409.0" fitWidth="600.0" layoutX="1.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="421.0" fitWidth="634.0" layoutX="1.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@bg.jpg" />
          </image>
@@ -24,14 +24,14 @@
             <Font name="Segoe UI Black" size="37.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="scroll" layoutX="97.0" layoutY="65.0" prefHeight="270.0" prefWidth="409.0" />
+      <ScrollPane fx:id="scroll" layoutX="64.0" layoutY="65.0" prefHeight="270.0" prefWidth="464.0" stylesheets="@scrollbar.css" />
       <TextArea fx:id="txtArea" layoutX="97.0" layoutY="348.0" prefHeight="1.0" prefWidth="250.0" promptText="Type Something.." />
       <Button layoutX="361.0" layoutY="348.0" mnemonicParsing="false" onAction="#create_post" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <VBox layoutX="517.0" layoutY="90.0" prefHeight="95.0" prefWidth="102.0" spacing="25.0">
+      <VBox layoutX="532.0" layoutY="102.0" prefHeight="95.0" prefWidth="102.0" spacing="25.0">
          <children>
             <Button fx:id="go2" mnemonicParsing="false" onAction="#onPostClick" prefHeight="28.0" prefWidth="73.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
                <font>
