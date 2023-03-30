@@ -15,7 +15,7 @@
                 <Font name="System Bold" size="16.0" />
             </font>
         </Button>
-      <TextField layoutX="21.0" layoutY="206.0" prefHeight="35.0" prefWidth="365.0" promptText="Enter Assignment Title" />
+      <TextField fx:id="title" layoutX="21.0" layoutY="206.0" prefHeight="35.0" prefWidth="365.0" promptText="Enter Assignment Title" />
       <Label layoutX="21.0" layoutY="152.0" prefHeight="54.0" prefWidth="220.0" text="Assignment Title:">
          <font>
             <Font name="Segoe UI Black" size="22.0" />
@@ -26,13 +26,13 @@
             <Font name="Segoe UI Black" size="22.0" />
          </font>
       </Label>
-      <TextField alignment="TOP_CENTER" layoutX="690.0" layoutY="343.0" prefHeight="25.0" prefWidth="111.0" promptText="Enter Marks" />
+      <TextField fx:id="marks" alignment="TOP_CENTER" layoutX="690.0" layoutY="343.0" prefHeight="25.0" prefWidth="111.0" promptText="Enter Marks" />
       <Label layoutX="27.0" layoutY="252.0" prefHeight="54.0" prefWidth="144.0" text="Instructions:">
          <font>
             <Font name="Segoe UI Black" size="22.0" />
          </font>
       </Label>
-      <TextField alignment="TOP_LEFT" layoutX="21.0" layoutY="316.0" prefHeight="166.0" prefWidth="365.0" promptText="Enter Necessary Instructions" />
+      <TextField fx:id="instr" alignment="TOP_LEFT" layoutX="21.0" layoutY="316.0" prefHeight="166.0" prefWidth="365.0" promptText="Enter Necessary Instructions" />
       <Label layoutX="18.0" layoutY="494.0" prefHeight="54.0" prefWidth="185.0" text="Necessary Files:">
          <font>
             <Font name="Segoe UI Black" size="22.0" />
@@ -44,7 +44,7 @@
          </font>
       </Button>
       <ListView fx:id="listview" layoutX="17.0" layoutY="548.0" prefHeight="47.0" prefWidth="365.0" />
-      <DatePicker fx:id="dpkr" layoutX="604.0" layoutY="235.0" prefHeight="35.0" prefWidth="231.0" />
+      <DatePicker fx:id="dpkr" layoutX="604.0" layoutY="235.0" onAction="#datePickerClick" prefHeight="35.0" prefWidth="231.0" />
       <Label layoutX="604.0" layoutY="169.0" prefHeight="54.0" prefWidth="120.0" text="Deadline:">
          <font>
             <Font name="Segoe UI Black" size="22.0" />

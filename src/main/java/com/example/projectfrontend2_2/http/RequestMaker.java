@@ -252,7 +252,7 @@ public class RequestMaker {
         return pdto;
     }
 
-    public SubmissionDTO fetch_submission_info(Long id) throws IOException, InterruptedException {
+    public SubmissionDTO fetch_submission_info(String id) throws IOException, InterruptedException {
 
 
         GsonBuilder builder = new GsonBuilder();
@@ -291,6 +291,27 @@ public class RequestMaker {
 
         HttpRequest request = HttpRequest.newBuilder().
                 uri(URI.create(url + "/classroom/createassignment")).
+                POST(HttpRequest.BodyPublishers.ofString(gson.toJson(pdto))).
+                header("Content-Type" , "application/json").
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+
+    }
+
+    public void create_submit(SubmissionDTO pdto) throws IOException, InterruptedException {
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        gson = builder.create();
+
+
+        System.out.println(gson.toJson(pdto));
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/classroom/createsubmission")).
                 POST(HttpRequest.BodyPublishers.ofString(gson.toJson(pdto))).
                 header("Content-Type" , "application/json").
                 build();

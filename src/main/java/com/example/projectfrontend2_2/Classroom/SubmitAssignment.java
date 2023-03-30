@@ -23,9 +23,7 @@ public class SubmitAssignment {
     @FXML
     private Button files;
 
-    @FXML
-    private DatePicker dpkr;
-
+    private AssignmentDTO adto;
     private ClassroomDTO cdto;
 
     public StudentDTO getSdto() {
@@ -67,11 +65,9 @@ public class SubmitAssignment {
 
     public void uploadClick(){
 
-        AssignmentDTO adto = new AssignmentDTO();
-        adto.setClassroomid(cdto.getId());
 
-        Timestamp ts = new Timestamp(dpkr.getValue().toEpochDay() );
-        System.out.println(ts.toString());
+
+
 
 
     }

@@ -86,6 +86,7 @@ public class CreateAssignment {
     }
 
 
+    @FXML
     public void datePickerClick(){
         date = dpkr.getValue();
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubmissionDTO {
-    private Long id;
+    private String id;
 
 
     private Timestamp submittedOn;
@@ -16,11 +16,31 @@ public class SubmissionDTO {
 
     private List<Long> addedFiles = new ArrayList<>();
 
-    public Long getId() {
+    private  Long assignmentId;
+
+    private  String submittedBy;
+
+    public String getSubmittedBy() {
+        return submittedBy;
+    }
+
+    public void setSubmittedBy(String submittedBy) {
+        this.submittedBy = submittedBy;
+    }
+
+    public Long getAssignmentId() {
+        return assignmentId;
+    }
+
+    public void setAssignmentId(Long assignmentId) {
+        this.assignmentId = assignmentId;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

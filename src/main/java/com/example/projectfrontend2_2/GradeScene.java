@@ -1,7 +1,9 @@
 package com.example.projectfrontend2_2;
 
 import com.example.projectfrontend2_2.Classroom.AssignmentDTO;
+import com.example.projectfrontend2_2.Classroom.SubmissionDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
+import com.example.projectfrontend2_2.http.RequestMaker;
 import com.example.projectfrontend2_2.post.PostDTO;
 import com.example.projectfrontend2_2.teacher.TeacherDTO;
 import javafx.fxml.FXML;
@@ -34,19 +36,26 @@ public class GradeScene {
 
     private AssignmentDTO adto;
 
+    static SubmissionDTO currentSub;
+
     private TeacherDTO tdto;
 
+    private RequestMaker rqm = new RequestMaker();
 
-    public  void init() throws IOException {
+    public  void init() throws IOException, InterruptedException {
 
 
         VBox vb = new VBox();
         vb.setSpacing(5);
-        for(int i = 0 ; i < 10 ; i++){
+        for(Long x  : adto.getSubmissionsOfThisID()){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("submissionview.fxml"));
             Node e = fxl.load();
             Submissionview tc = fxl.getController();
-            tc.getName().setText("Hello " + i);
+            SubmissionDTO subdto = rqm.fetch_submission_info(x.toString());
+            tc.getName().setText(subdto.getSubmittedBy());
+            tc.setSub(subdto);
+            tc.setAdto(adto);
+            tc.setTdto(tdto);
 
             vb.getChildren().add(e);
             VBox.setVgrow(e, Priority.ALWAYS);
@@ -55,14 +64,21 @@ public class GradeScene {
         submissions.setContent(vb);
 
 
+
+
+
+    }
+
+    public void init_sub() throws IOException, InterruptedException {
         VBox vb2 = new VBox();
         vb2.setSpacing(5);
-        for(int i = 0 ; i < 10 ; i++){
+        for(Long x : currentSub.getAddedFiles()){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("FileView.fxml"));
             Node e = fxl.load();
             FileView tc = fxl.getController();
 
-
+            tc.setFdto(rqm.fetch_file_info(x));
+            tc.getFilename().setText(tc.getFdto().getFilename());
             vb2.getChildren().add(e);
             VBox.setVgrow(e, Priority.ALWAYS);
         }
@@ -70,4 +86,83 @@ public class GradeScene {
         files.setContent(vb2);
     }
 
+    public ScrollPane getSubmissions() {
+        return submissions;
+    }
+
+    public void setSubmissions(ScrollPane submissions) {
+        this.submissions = submissions;
+    }
+
+    public ScrollPane getFiles() {
+        return files;
+    }
+
+    public void setFiles(ScrollPane files) {
+        this.files = files;
+    }
+
+    public TextField getGrade() {
+        return grade;
+    }
+
+    public void setGrade(TextField grade) {
+        this.grade = grade;
+    }
+
+    public Label getAssignment_name() {
+        return assignment_name;
+    }
+
+    public void setAssignment_name(Label assignment_name) {
+        this.assignment_name = assignment_name;
+    }
+
+    public Label getStudent_name() {
+        return student_name;
+    }
+
+    public void setStudent_name(Label student_name) {
+        this.student_name = student_name;
+    }
+
+    public Label getTotal_grade() {
+        return total_grade;
+    }
+
+    public void setTotal_grade(Label total_grade) {
+        this.total_grade = total_grade;
+    }
+
+    public AssignmentDTO getAdto() {
+        return adto;
+    }
+
+    public void setAdto(AssignmentDTO adto) {
+        this.adto = adto;
+    }
+
+    public static SubmissionDTO getCurrentSub() {
+        return currentSub;
+    }
+
+    public static void setCurrentSub(SubmissionDTO currentSub) {
+        GradeScene.currentSub = currentSub;
+    }
+
+    public TeacherDTO getTdto() {
+        return tdto;
+    }
+
+    public void setTdto(TeacherDTO tdto) {
+        this.tdto = tdto;
+    }
+
+    public RequestMaker getRqm() {
+        return rqm;
+    }
+
+    public void setRqm(RequestMaker rqm) {
+        this.rqm = rqm;
+    }
 }

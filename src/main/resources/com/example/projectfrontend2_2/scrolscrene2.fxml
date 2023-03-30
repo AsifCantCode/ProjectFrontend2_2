@@ -47,7 +47,7 @@
                   <Image url="@man.png" />
                </image>
             </ImageView>
-            <Button fx:id="Logout" alignment="CENTER" layoutX="-1.0" layoutY="602.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Log Out" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="-1.0" layoutY="602.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Logout" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -69,12 +69,12 @@
                   <Font name="Segoe UI Semibold" size="28.0" />
                </font>
             </Label>
-            <Button fx:id="go2" layoutY="380.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Post" textFill="WHITE">
+            <Button fx:id="go2" layoutY="380.0" mnemonicParsing="false" onAction="#init" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Post" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="go1" layoutX="-1.0" layoutY="453.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assignment" textFill="WHITE">
+            <Button fx:id="go1" layoutX="-1.0" layoutY="453.0" mnemonicParsing="false" onAction="#init_assignments" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assignment" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

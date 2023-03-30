@@ -1,5 +1,6 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.Classroom.AssignmentDTO;
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Classroom.CreateAssignment;
 import com.example.projectfrontend2_2.Classroom.TeacherScene2;
@@ -92,11 +93,25 @@ public class core2 {
     public void init_assignments() throws IOException, InterruptedException {
 
 
+        cdto = rqm.fetch_classroom(cdto.getId());
 
+        VBox vb = new VBox();
+        vb.setSpacing(15);
         for(Long x : cdto.getAssignmentsHereID()){
-            rqm.fetch_ass(x);
+            FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("assignment_tile.fxml"));
+            Node e = fxl.load();
+            assignment_tile_control tc = fxl.getController();
+            AssignmentDTO adto = rqm.fetch_ass(x);
+            tc.setTeach(true);
+            tc.setTdto(tdto);
+            tc.setAdto(adto);
+            tc.getTeacher().setText(adto.getTitle());
+            tc.getDate().setText(adto.getDeadline().toString());
+            tc.getAssignment_title().setText(adto.getTitle());
+            vb.getChildren().add(e);
+            VBox.setVgrow(e, Priority.ALWAYS);
         }
-
+        scroll.setContent(vb);
 
     }
 
@@ -117,7 +132,7 @@ public class core2 {
 
 
     @FXML
-    public void do_grading(ActionEvent event) throws IOException {
+    public void do_grading(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
@@ -125,15 +140,15 @@ public class core2 {
         Scene subtractionScene = new Scene(fxmlLoader.load());
         GradeScene gs = fxmlLoader.getController();
 
-        gs.init();
+        //gs.init();
 
         myStage.setScene(subtractionScene);
         myStage.show();
     }
     @FXML
     public void createAssignment(ActionEvent event) throws IOException, InterruptedException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
+        //Node root = (Node) event.getSource();
+        Stage myStage = new Stage();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CreateAssignment.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());

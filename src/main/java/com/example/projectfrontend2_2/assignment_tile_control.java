@@ -1,7 +1,10 @@
 package com.example.projectfrontend2_2;
 
 import com.example.projectfrontend2_2.Classroom.AssignmentDTO;
+import com.example.projectfrontend2_2.Classroom.SubmitAss;
+import com.example.projectfrontend2_2.Classroom.SubmitAssignment;
 import com.example.projectfrontend2_2.Student.StudentDTO;
+import com.example.projectfrontend2_2.teacher.TeacherDTO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,10 +20,31 @@ public class assignment_tile_control {
     Label date;
 
     private StudentDTO sdto;
+
+    private TeacherDTO tdto;
     private AssignmentDTO adto;
+
+    private boolean isTeach = false;
+
+    public boolean isTeach() {
+        return isTeach;
+    }
+
+    public void setTeach(boolean teach) {
+        isTeach = teach;
+    }
 
     public StudentDTO getSdto() {
         return sdto;
+    }
+
+
+    public TeacherDTO getTdto() {
+        return tdto;
+    }
+
+    public void setTdto(TeacherDTO tdto) {
+        this.tdto = tdto;
     }
 
     public void setSdto(StudentDTO sdto) {
@@ -63,12 +87,33 @@ public class assignment_tile_control {
     Label assignment_title;
 
     @FXML
-    private void onItemPressed() throws IOException{
-        Stage myStage = new Stage();
-        FXMLLoader fxml = new FXMLLoader(HelloApplication.class.getResource("submit_assignment.fxml"));
-        Scene as = new Scene(fxml.load());
-        myStage.setScene(as);
-        myStage.show();
+    private void onItemPressed() throws IOException, InterruptedException {
+
+        if(isTeach){
+            Stage myStage = new Stage();
+            FXMLLoader fxml = new FXMLLoader(HelloApplication.class.getResource("GradeScene.fxml"));
+            Scene as = new Scene(fxml.load());
+            GradeScene sb = fxml.getController();
+
+            sb.setAdto(adto);
+            sb.setTdto(tdto);
+
+            sb.init();
+            myStage.setScene(as);
+            myStage.show();
+        }
+        else{
+            Stage myStage = new Stage();
+            FXMLLoader fxml = new FXMLLoader(HelloApplication.class.getResource("AssSubmit.fxml"));
+            Scene as = new Scene(fxml.load());
+            SubmitAss sb = fxml.getController();
+
+            sb.setSdto(sdto);
+            sb.setAdto(adto);
+            myStage.setScene(as);
+            myStage.show();
+        }
+
     }
 
     public void init() {
