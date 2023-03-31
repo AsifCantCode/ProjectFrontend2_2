@@ -65,7 +65,7 @@ public class assignment_tile_control {
     @FXML
     private void onItemPressed() throws IOException{
         Stage myStage = new Stage();
-        FXMLLoader fxml = new FXMLLoader(HelloApplication.class.getResource("submit_assignment.fxml"));
+        FXMLLoader fxml = new FXMLLoader(HelloApplication.class.getResource("AssSubmit.fxml"));
         Scene as = new Scene(fxml.load());
         myStage.setScene(as);
         myStage.show();

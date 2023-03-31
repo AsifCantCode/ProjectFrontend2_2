@@ -4,38 +4,48 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.Attendance">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="678.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.Attendance">
    <children>
-      <Label layoutX="34.0" layoutY="19.0" prefHeight="63.0" prefWidth="610.0" text="Course Code Attendance Tab">
+      <ImageView fitHeight="313.0" fitWidth="546.0" layoutX="334.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bg2.png" />
+         </image>
+      </ImageView>
+      <DatePicker layoutX="377.0" layoutY="107.0" prefHeight="26.0" prefWidth="473.0" />
+      <Label layoutX="377.0" layoutY="63.0" prefHeight="37.0" prefWidth="127.0" text="Enter Date:">
          <font>
-            <Font name="Segoe UI Black" size="37.0" />
+            <Font name="Segoe UI" size="21.0" />
          </font>
       </Label>
-      <DatePicker layoutX="34.0" layoutY="179.0" prefHeight="25.0" prefWidth="272.0" />
-      <Label layoutX="34.0" layoutY="116.0" prefHeight="63.0" prefWidth="127.0" text="Enter Date:">
-         <font>
-            <Font name="Segoe UI Black" size="21.0" />
-         </font>
-      </Label>
-      <ScrollPane fx:id="scroll" layoutX="394.0" layoutY="111.0" prefHeight="465.0" prefWidth="390.0" />
-      <Label alignment="CENTER" layoutX="394.0" layoutY="81.0" prefHeight="33.0" prefWidth="195.0" text="ID" underline="true">
-         <font>
-            <Font name="Segoe UI Black" size="15.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="605.0" layoutY="81.0" prefHeight="33.0" prefWidth="195.0" text="Attendance" underline="true">
-         <font>
-            <Font name="Segoe UI Black" size="15.0" />
-         </font>
-      </Label>
-      <Button fx:id="back" layoutX="691.0" layoutY="33.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Back" textFill="WHITE">
+      <ScrollPane fx:id="scroll" layoutX="377.0" layoutY="146.0" prefHeight="436.0" prefWidth="473.0" />
+      <Button fx:id="back" layoutX="788.0" layoutY="621.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="68.0" stylesheets="@logoutbutton.css" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
+      <Pane layoutY="-2.0" prefHeight="685.0" prefWidth="334.0" style="-fx-background-color: blue;">
+         <children>
+            <Circle fill="WHITE" layoutX="166.0" layoutY="302.0" radius="139.0" stroke="WHITE" strokeType="INSIDE" />
+            <ImageView fitHeight="214.0" fitWidth="214.0" layoutX="60.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@event.png" />
+               </image>
+            </ImageView>
+            <Circle fill="#ffffff00" layoutX="14.0" layoutY="435.0" radius="107.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="167.0" layoutY="-57.0" radius="100.0" stroke="WHITE" strokeType="INSIDE" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="104.0" prefHeight="53.0" prefWidth="334.0" text="Attendance" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

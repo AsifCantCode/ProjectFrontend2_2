@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -15,7 +16,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.core2">
     <children>
-      <Circle fill="#9212b854" layoutX="576.0" layoutY="-29.0" radius="165.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fill="#9212b854" layoutX="727.0" layoutY="-37.0" radius="165.0" stroke="WHITE" strokeType="INSIDE" />
         <ScrollPane fx:id="scroll" layoutX="240.0" layoutY="169.0" prefHeight="508.0" prefWidth="643.0" />
       <Button fx:id="go" layoutX="799.0" layoutY="110.0" mnemonicParsing="false" onAction="#create_post" prefHeight="26.0" prefWidth="68.0" stylesheets="@beguni.css" text="Post" textFill="WHITE">
          <font>
@@ -47,11 +48,6 @@
                   <Image url="@man.png" />
                </image>
             </ImageView>
-            <Button fx:id="Logout" alignment="CENTER" layoutX="-1.0" layoutY="602.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Log Out" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
             <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutY="322.0" prefHeight="35.0" prefWidth="240.0" text="Samnun" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="24.0" />
@@ -69,21 +65,35 @@
                   <Font name="Segoe UI Semibold" size="28.0" />
                </font>
             </Label>
-            <Button fx:id="go2" layoutY="380.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Post" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="go1" layoutX="-1.0" layoutY="453.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assignment" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="assign" layoutY="527.0" mnemonicParsing="false" onAction="#createAssignment" prefHeight="62.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assign" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
+            <VBox layoutY="417.0" prefHeight="298.0" prefWidth="240.0" spacing="15.0">
+               <children>
+                  <Button fx:id="go2" mnemonicParsing="false" prefHeight="36.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Post" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="go1" mnemonicParsing="false" prefHeight="36.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assignment" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="assign" mnemonicParsing="false" onAction="#createAssignment" prefHeight="36.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assign" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="attendance" mnemonicParsing="false" onAction="#GoToAttendance" prefHeight="36.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Attendance" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Logout" alignment="CENTER" mnemonicParsing="false" onAction="#goToHome" prefHeight="36.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Log Out" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
          </children>
       </Pane>
           <TextArea fx:id="txtArea" layoutX="252.0" layoutY="109.0" prefHeight="38.0" prefWidth="530.0" promptText="Type Something.." />
@@ -92,5 +102,6 @@
             <Font name="Segoe UI Semibold" size="36.0" />
          </font>
       </Label>
+      <Circle fill="#9212b854" layoutX="590.0" layoutY="-84.0" radius="165.0" stroke="WHITE" strokeType="INSIDE" />
     </children>
 </Pane>
