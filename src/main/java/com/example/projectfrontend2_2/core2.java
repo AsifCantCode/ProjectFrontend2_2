@@ -120,6 +120,7 @@ public class core2 {
             tc.getTeacher().setText(adto.getTitle());
             tc.getDate().setText(adto.getDeadline().toString());
             tc.getAssignment_title().setText(adto.getTitle());
+            tc.init();
             vb.getChildren().add(e);
             VBox.setVgrow(e, Priority.ALWAYS);
         }

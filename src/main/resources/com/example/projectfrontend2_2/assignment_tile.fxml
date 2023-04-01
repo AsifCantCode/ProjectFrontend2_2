@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#onItemPressed" prefHeight="139.0" prefWidth="642.0" style="-fx-background-radius: 10; -fx-background-color: #e6cffa;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.assignment_tile_control">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#onItemPressed" prefHeight="139.0" prefWidth="642.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #e6cffa;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.assignment_tile_control">
     <children>
         <Label fx:id="teacher" layoutX="100.0" layoutY="19.0" prefHeight="21.0" prefWidth="284.0" text="Mr. X">
             <font>
@@ -19,22 +19,22 @@
                 <Font name="Roboto" size="15.0" />
             </font>
         </Label>
-        <Label fx:id="assignment_title" alignment="TOP_LEFT" layoutX="100.0" layoutY="88.0" prefHeight="50.0" prefWidth="536.0" text="Random Text" wrapText="true" />
+        <Label fx:id="assignment_title" alignment="TOP_LEFT" layoutX="100.0" layoutY="81.0" prefHeight="57.0" prefWidth="365.0" text="Random Text" wrapText="true" />
       <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="23.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@files.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="485.0" layoutY="12.0" prefHeight="56.0" prefWidth="107.0">
+      <AnchorPane fx:id="duepane" layoutX="483.0" layoutY="36.0" prefHeight="56.0" prefWidth="107.0" style="-fx-background-color: #FCC2A7; -fx-background-radius: 3; -fx-border-radius: 03; -fx-border-color: #000000; -fx-border-width: .75;">
          <children>
-            <Label layoutX="2.0" text="Due in :">
+            <Label layoutX="13.0" layoutY="5.0" text="Due in :" textFill="#4a4551">
                <font>
-                  <Font size="19.0" />
+                  <Font name="Segoe UI Semibold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="2.0" layoutY="27.0" text="2 Days">
+            <Label fx:id="duetxt" layoutX="14.0" layoutY="26.0" text="2 Days" textFill="#38343c">
                <font>
-                  <Font size="16.0" />
+                  <Font name="Segoe UI Semibold" size="16.0" />
                </font>
             </Label>
          </children>
