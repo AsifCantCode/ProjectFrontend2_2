@@ -98,6 +98,7 @@ public class CreateAssignment {
     public void datePickerClick(){
         date = dpkr.getValue();
 
+        date = date.plusDays(1);
 
         Instant instant = Instant.from(date.atStartOfDay(ZoneId.systemDefault()));
         LocalDateTime dat = LocalDateTime.ofInstant(instant , ZoneOffset.systemDefault());

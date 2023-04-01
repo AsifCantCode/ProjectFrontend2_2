@@ -1,12 +1,18 @@
 package com.example.projectfrontend2_2.Classroom;
 
+import com.example.projectfrontend2_2.FileView;
+import com.example.projectfrontend2_2.HelloApplication;
 import com.example.projectfrontend2_2.Student.StudentDTO;
+import com.example.projectfrontend2_2.assignment_tile_control;
 import com.example.projectfrontend2_2.http.RequestMaker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -23,9 +29,20 @@ public class SubmitAss {
     @FXML
     private Button upload;
 
+    @FXML
+    private Label title;
+
+    @FXML
+    private Label todo;
+
+    @FXML
+    private ScrollPane files_pane;
+
 
     private StudentDTO sdto;
     private AssignmentDTO adto;
+
+    private SubmissionDTO subdto;
 
 
     public StudentDTO getSdto() {
@@ -52,11 +69,38 @@ public class SubmitAss {
     @FXML
     private TextField comments;
 
-    @FXML
-    private TextField course_name;
 
-    @FXML
-    private TextField ass_title;
+
+
+    public void init() throws IOException, InterruptedException {
+        title.setText(adto.getTitle());
+        todo.setText(adto.getInstruction());
+        subdto = rqm.fetch_submission_info(sdto.getStudid().toString() + adto.getId().toString());
+        VBox vb = new VBox();
+        vb.setSpacing(7);
+        //vb.setPadding(new Insets(7,0,0,0));
+        for(Long fid : adto.getNeededFilesID()){
+            FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("FileView.fxml"));
+            Node e = fxl.load();
+            FileView tc = fxl.getController();
+            FileDTO fdto = rqm.fetch_file_info(fid);
+
+            tc.setFdto(fdto);
+            tc.getFilename().setText(fdto.getFilename());
+
+            vb.getChildren().add(e);
+            VBox.setVgrow(e, Priority.ALWAYS);
+        }
+
+        files_pane.setContent(vb);
+
+        if(subdto == null) return;
+        comments.setText(subdto.getInformation());
+
+        for(Long sub_files : subdto.getAddedFiles()){
+            listview.getItems().add(rqm.fetch_file_info(sub_files).getFilename());
+        }
+    }
 
     public void ButtonAction(ActionEvent event) throws URISyntaxException, IOException, InterruptedException {
         FileChooser fc = new FileChooser();
@@ -81,7 +125,7 @@ public class SubmitAss {
 
     @FXML
     public void upload_ass() throws IOException, InterruptedException {
-        SubmissionDTO subdto = rqm.fetch_submission_info(sdto.getStudid().toString() + adto.getId().toString());
+
         if(subdto == null){
             subdto = new SubmissionDTO();
         }

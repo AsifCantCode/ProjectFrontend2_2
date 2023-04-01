@@ -28,7 +28,7 @@ public class StudentLogin {
     private List<ClassroomDTO> all_classrooms;
 
     @FXML
-    private TextField studentID;
+    private TextField studentid;
 
     @FXML
     private Label welcomeText;
@@ -52,7 +52,7 @@ public class StudentLogin {
 
         LoginDTO ldto = new LoginDTO();
         Gson gson = new Gson();
-        ldto.setCommon_id(Long.parseLong(studentID.getText()));
+        ldto.setCommon_id(Long.parseLong(studentid.getText()));
         ldto.setPassword(passWord.getText());
 
 

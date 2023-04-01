@@ -18,13 +18,13 @@
             <Image url="@bg2.png" />
          </image>
       </ImageView>
-      <DatePicker layoutX="377.0" layoutY="107.0" prefHeight="26.0" prefWidth="473.0" />
+      <DatePicker fx:id="datePicker" layoutX="377.0" layoutY="107.0" onAction="#datePickerClick" prefHeight="26.0" prefWidth="473.0" />
       <Label layoutX="377.0" layoutY="63.0" prefHeight="37.0" prefWidth="127.0" text="Enter Date:">
          <font>
             <Font name="Segoe UI" size="21.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="scroll" layoutX="377.0" layoutY="146.0" prefHeight="436.0" prefWidth="473.0" />
+      <ScrollPane fx:id="scroll" layoutX="377.0" layoutY="146.0" prefHeight="436.0" prefWidth="473.0" stylesheets="@scrollbar.css" />
       <Button fx:id="back" layoutX="788.0" layoutY="621.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="68.0" stylesheets="@logoutbutton.css" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />

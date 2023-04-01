@@ -110,6 +110,7 @@ public class assignment_tile_control {
 
             sb.setSdto(sdto);
             sb.setAdto(adto);
+            sb.init();
             myStage.setScene(as);
             myStage.show();
         }

@@ -72,7 +72,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="go1" mnemonicParsing="false" prefHeight="36.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assignment" textFill="WHITE">
+                  <Button fx:id="go1" mnemonicParsing="false" onAction="#init_assignments" prefHeight="36.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Assignment" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

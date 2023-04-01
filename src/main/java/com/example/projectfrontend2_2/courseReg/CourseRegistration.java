@@ -74,7 +74,7 @@ public class CourseRegistration {
         this.nm = nm;
     }
 
-    @FXML
+
     private int studentid;
     private String nm;
 

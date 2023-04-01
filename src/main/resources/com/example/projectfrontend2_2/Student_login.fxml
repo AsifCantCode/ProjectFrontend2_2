@@ -36,7 +36,7 @@
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <TextField fx:id="studentID" layoutX="254.0" layoutY="275.0" prefHeight="39.0" prefWidth="194.0" promptText="Student ID" style="-fx-background-radius: 8;" />
+            <TextField fx:id="studentid" layoutX="254.0" layoutY="275.0" prefHeight="39.0" prefWidth="194.0" promptText="Student ID" style="-fx-background-radius: 8;" />
             <PasswordField fx:id="passWord" layoutX="254.0" layoutY="339.0" prefHeight="38.0" prefWidth="196.0" promptText="Password" style="-fx-background-radius: 8;" />
             <Label layoutX="131.0" layoutY="279.0" prefHeight="32.0" prefWidth="134.0" text="Student ID" textFill="WHITE">
                <font>

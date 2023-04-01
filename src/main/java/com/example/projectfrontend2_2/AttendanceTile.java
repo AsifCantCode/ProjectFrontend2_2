@@ -1,7 +1,9 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.Classroom.Attendance;
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
+import com.example.projectfrontend2_2.http.RequestMaker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +15,7 @@ import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Date;
 
 public class AttendanceTile {
 
@@ -24,17 +27,48 @@ public class AttendanceTile {
 
     private StudentDTO sdto;
 
+    private  ClassroomDTO cdto;
+
+    private Date date;
+
+    private Boolean isPresent;
+
+    RequestMaker rqm = new RequestMaker();
     public void init(){
         ID.setText(sdto.getStudid().toString());
     }
-    public void goToPost(ActionEvent event) throws IOException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("postcontrol.fxml"));
-        Scene subtractionScene = new Scene(fxmlLoader.load());
-        myStage.setScene(subtractionScene);
-        myStage.show();
+
+    @FXML
+    public  void radioClick(ActionEvent event) throws IOException, InterruptedException {
+
+        boolean b = attendance.isSelected();
+        Attendance as = new Attendance(date , cdto.getId() , sdto.getStudid() , b );
+        rqm.create_attendance(as);
+    }
+
+    public ClassroomDTO getCdto() {
+        return cdto;
+    }
+
+    public void setCdto(ClassroomDTO cdto) {
+        this.cdto = cdto;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Boolean getPresent() {
+        return isPresent;
+    }
+
+    public void setPresent(Boolean present) {
+        isPresent = present;
     }
 
     public StudentDTO getSdto() {

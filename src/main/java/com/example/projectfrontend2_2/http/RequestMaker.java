@@ -1,9 +1,6 @@
 package com.example.projectfrontend2_2.http;
 
-import com.example.projectfrontend2_2.Classroom.AssignmentDTO;
-import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
-import com.example.projectfrontend2_2.Classroom.FileDTO;
-import com.example.projectfrontend2_2.Classroom.SubmissionDTO;
+import com.example.projectfrontend2_2.Classroom.*;
 import com.example.projectfrontend2_2.Login.LoginDTO;
 import com.example.projectfrontend2_2.MultipartUtility;
 import com.example.projectfrontend2_2.Student.StudentDTO;
@@ -128,6 +125,26 @@ public class RequestMaker {
 
     }
 
+    public void create_attendance(Attendance a) throws IOException, InterruptedException {
+
+        GsonBuilder builder = new GsonBuilder();
+        builder.setDateFormat("yyyy-MM-dd");
+        gson = builder.create();
+
+
+        System.out.println(gson.toJson(a));
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/classroom/createattendance")).
+                POST(HttpRequest.BodyPublishers.ofString(gson.toJson(a))).
+                header("Content-Type" , "application/json").
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+
+    }
     public ClassroomDTO fetch_classroom(Long Class_id) throws IOException, InterruptedException {
 
         gson = new Gson();

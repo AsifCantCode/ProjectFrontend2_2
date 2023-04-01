@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -17,6 +18,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,12 +30,17 @@ public class Attendance {
 
     private ClassroomDTO cdto;
 
+    private Date current_date = Date.valueOf(LocalDate.now());
 
     @FXML
     private Button back;
 
+    @FXML
+    private DatePicker datePicker;
+
     private RequestMaker rqm = new RequestMaker();
     public  void init() throws IOException, InterruptedException {
+
 
         VBox vb = new VBox();
         vb.setSpacing(10);
@@ -48,6 +56,8 @@ public class Attendance {
             Node e = fxl.load();
             AttendanceTile tc = fxl.getController();
             tc.setSdto(rqm.fetch_student(id));
+            tc.setCdto(cdto);
+            tc.setDate(current_date);
             tc.init();
             e.setUserData(tc.getSdto());
             vb.getChildren().add(e);
@@ -69,6 +79,15 @@ public class Attendance {
 
         myStage.show();
         myStage.close();
+    }
+
+    @FXML
+    public void datePickerClick() throws IOException, InterruptedException {
+        LocalDate temp_date = datePicker.getValue();
+
+        current_date = Date.valueOf(temp_date);
+
+        init();
     }
 
     public ClassroomDTO getCdto() {

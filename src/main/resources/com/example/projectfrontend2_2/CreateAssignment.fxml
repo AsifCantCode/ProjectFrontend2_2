@@ -47,7 +47,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <ListView fx:id="listview" layoutX="403.0" layoutY="539.0" prefHeight="40.0" prefWidth="500.0" />
+      <ListView fx:id="listview" layoutX="403.0" layoutY="539.0" prefHeight="40.0" prefWidth="500.0" stylesheets="@scrollbar.css" />
       <DatePicker fx:id="dpkr" layoutX="403.0" layoutY="346.0" onAction="#datePickerClick" prefHeight="40.0" prefWidth="500.0" />
       <Label layoutX="403.0" layoutY="292.0" prefHeight="54.0" prefWidth="120.0" text="Deadline:">
          <font>
