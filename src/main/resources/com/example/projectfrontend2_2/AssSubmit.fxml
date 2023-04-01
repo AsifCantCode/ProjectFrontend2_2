@@ -1,59 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.Classroom.SubmitAss">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.Classroom.SubmitAss">
     <children>
-        <Button layoutX="400.0" layoutY="534.0" mnemonicParsing="false" onAction="#upload_ass" prefHeight="26.0" prefWidth="68.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="Post" textFill="WHITE">
+        <Button layoutX="770.0" layoutY="621.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="90.0" stylesheets="@logoutbutton.css" text="Upload" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
         </Button>
-        <ImageView fitHeight="600.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
-        <Label layoutX="39.0" layoutY="345.0" prefHeight="54.0" prefWidth="144.0" text="Comments:">
+        <Label layoutX="354.0" layoutY="511.0" prefHeight="54.0" prefWidth="144.0" text="Comments:">
             <font>
-                <Font name="Segoe UI Black" size="22.0" />
+                <Font name="Segoe UI Semilight" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="comments" alignment="TOP_LEFT" layoutX="31.0" layoutY="413.0" prefHeight="69.0" prefWidth="363.0" promptText="Enter Necessary Instructions" />
-        <Label layoutX="39.0" layoutY="167.0" prefHeight="54.0" prefWidth="185.0" text="Attach Files:">
+        <TextField fx:id="comments" alignment="TOP_LEFT" layoutX="354.0" layoutY="565.0" prefHeight="46.0" prefWidth="506.0" promptText="Enter Necessary Instructions" stylesheets="@login.css">
+         <font>
+            <Font name="Segoe UI" size="12.0" />
+         </font></TextField>
+        <Label layoutX="347.0" layoutY="32.0" prefHeight="54.0" prefWidth="306.0" text="Upload Assignment">
             <font>
-                <Font name="Segoe UI Black" size="22.0" />
+                <Font name="Segoe UI Semibold" size="34.0" />
             </font>
         </Label>
-        <Button fx:id="files" layoutX="248.0" layoutY="177.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="35.0" prefWidth="144.0" style="-fx-background-radius: 22; -fx-background-color: #241ee6;" text="+ Select Files " textFill="WHITE">
+        <Button fx:id="files" layoutX="716.0" layoutY="149.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="35.0" prefWidth="144.0" stylesheets="@logoutbutton.css" text="+ Select Files " textFill="WHITE">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
         </Button>
-        <ListView fx:id="listview" layoutX="35.0" layoutY="260.0" prefHeight="81.0" prefWidth="357.0" />
-      <Label alignment="CENTER" layoutX="259.0" layoutY="30.0" prefHeight="54.0" prefWidth="332.0" text="Course Name">
+        <ListView fx:id="listview" layoutX="347.0" layoutY="197.0" prefHeight="46.0" prefWidth="506.0" />
+      <Pane layoutY="-1.0" prefHeight="685.0" prefWidth="334.0" style="-fx-background-color: blue;">
+         <children>
+            <Circle fill="WHITE" layoutX="166.0" layoutY="302.0" radius="139.0" stroke="WHITE" strokeType="INSIDE" />
+            <ImageView fitHeight="214.0" fitWidth="214.0" layoutX="60.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@blackboard.png" />
+               </image>
+            </ImageView>
+            <Circle fill="#ffffff00" layoutX="14.0" layoutY="435.0" radius="107.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="167.0" layoutY="-57.0" radius="100.0" stroke="WHITE" strokeType="INSIDE" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="104.0" prefHeight="53.0" prefWidth="334.0" text="Assignment Submission" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Circle fill="WHITE" layoutY="720.0" radius="132.0" stroke="WHITE" strokeType="INSIDE" />
+      <ImageView fitHeight="247.0" fitWidth="415.0" layoutX="409.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@UI%20Login%20Page%20Desktop%20Prototype%20(2).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="355.0" layoutY="159.0" text="Upload Your Files Here:">
          <font>
-            <Font name="Segoe UI Black" size="32.0" />
+            <Font name="Segoe UI Semilight" size="18.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" layoutX="443.0" layoutY="177.0" prefHeight="35.0" prefWidth="343.0" text="Assignment Title">
-         <font>
-            <Font name="Segoe UI Black" size="20.0" />
-         </font>
-      </Label>
-      <ComboBox layoutX="442.0" layoutY="221.0" prefHeight="25.0" prefWidth="299.0" />
-      <Label alignment="TOP_LEFT" layoutX="443.0" layoutY="273.0" prefHeight="35.0" prefWidth="98.0" text="Deadline:">
-         <font>
-            <Font name="Segoe UI Black" size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="566.0" layoutY="273.0" prefHeight="35.0" prefWidth="177.0" text="date">
-         <font>
-            <Font name="Segoe UI Black" size="20.0" />
-         </font>
-      </Label>
+      <Circle fill="#2849dc3d" layoutX="888.0" layoutY="-85.0" radius="225.0" stroke="#ffffff00" strokeType="INSIDE" />
+      <Circle fill="#121ae33d" layoutX="725.0" layoutY="-166.0" radius="225.0" stroke="#ffffff00" strokeType="INSIDE" />
     </children>
 </Pane>
