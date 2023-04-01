@@ -1,5 +1,8 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
+import com.example.projectfrontend2_2.Student.StudentDTO;
+import com.example.projectfrontend2_2.http.RequestMaker;
 import com.example.projectfrontend2_2.post.PostDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,30 +25,41 @@ public class Attendance {
     @FXML
     private ScrollPane scroll;
 
+    private ClassroomDTO cdto;
+
+
     @FXML
     private Button back;
 
-    public  void initialize() throws IOException, InterruptedException {
+    private RequestMaker rqm = new RequestMaker();
+    public  void init() throws IOException, InterruptedException {
 
         VBox vb = new VBox();
         vb.setSpacing(10);
         //vb.setPadding(new Insets(2,0,2,0));
-        List<String> classlist = new ArrayList<>();
-        classlist.add("200041106");
-        classlist.add("200041108");
+        List<Long> classlist = new ArrayList<>();
+        classlist.addAll(cdto.getStudents());
+
         HBox hb = new HBox();
         //classlist.addAll(cdto.getPosts());
-//        Collections.sort(classlist , (a , b)->{
-//            return Math.toIntExact(b - a);
-//        });
-        for(String id : classlist){
+
+        for(Long id : classlist){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("attendance-tile.fxml"));
             Node e = fxl.load();
             AttendanceTile tc = fxl.getController();
-            tc.ID.setText(id);
+            tc.setSdto(rqm.fetch_student(id));
+            tc.init();
+            e.setUserData(tc.getSdto());
             vb.getChildren().add(e);
             VBox.setVgrow(hb, Priority.ALWAYS);
         }
+        Collections.sort(vb.getChildren() , (a , b)->{
+            StudentDTO ab = (StudentDTO) a.getUserData();
+            StudentDTO bb = (StudentDTO) b.getUserData();
+
+            return Math.toIntExact(ab.getStudid() - bb.getStudid());
+        });
+
         scroll.setContent(vb);
     }
 //ll
@@ -53,13 +67,15 @@ public class Attendance {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scrolscrene2.fxml"));
-        Scene subtractionScene = new Scene(fxmlLoader.load());
-        core2 obj = fxmlLoader.getController();
-
-        myStage.setScene(subtractionScene);
         myStage.show();
+        myStage.close();
     }
 
+    public ClassroomDTO getCdto() {
+        return cdto;
+    }
 
+    public void setCdto(ClassroomDTO cdto) {
+        this.cdto = cdto;
+    }
 }

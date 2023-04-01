@@ -143,20 +143,7 @@ public class core2 {
     }
 
 
-    @FXML
-    public void do_grading(ActionEvent event) throws IOException, InterruptedException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("GradeScene.fxml"));
-        Scene subtractionScene = new Scene(fxmlLoader.load());
-        GradeScene gs = fxmlLoader.getController();
-
-        //gs.init();
-
-        myStage.setScene(subtractionScene);
-        myStage.show();
-    }
     @FXML
     public void createAssignment(ActionEvent event) throws IOException, InterruptedException {
         //Node root = (Node) event.getSource();
@@ -198,12 +185,15 @@ public class core2 {
 
     @FXML
     public void GoToAttendance(ActionEvent event) throws IOException, InterruptedException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
+
+        Stage myStage = new Stage();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Attendance.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
         Attendance obj = fxmlLoader.getController();
+
+        obj.setCdto(cdto);
+        obj.init();
 
         myStage.setScene(subtractionScene);
         myStage.show();

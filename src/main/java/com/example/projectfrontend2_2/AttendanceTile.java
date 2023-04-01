@@ -1,5 +1,7 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
+import com.example.projectfrontend2_2.Student.StudentDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +22,11 @@ public class AttendanceTile {
     @FXML
     RadioButton attendance;
 
+    private StudentDTO sdto;
 
+    public void init(){
+        ID.setText(sdto.getStudid().toString());
+    }
     public void goToPost(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
@@ -29,5 +35,13 @@ public class AttendanceTile {
         Scene subtractionScene = new Scene(fxmlLoader.load());
         myStage.setScene(subtractionScene);
         myStage.show();
+    }
+
+    public StudentDTO getSdto() {
+        return sdto;
+    }
+
+    public void setSdto(StudentDTO sdto) {
+        this.sdto = sdto;
     }
 }

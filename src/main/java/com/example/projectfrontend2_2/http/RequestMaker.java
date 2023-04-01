@@ -150,6 +150,28 @@ public class RequestMaker {
         return cdto;
     }
 
+    public StudentDTO fetch_student(Long id) throws IOException, InterruptedException {
+
+        gson = new Gson();
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/fetch/student/" + id)).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body().toString());
+        StudentDTO cdto = gson.fromJson(response.body().toString() , StudentDTO.class);
+
+
+        System.out.println("here" + cdto.getDept());
+        return cdto;
+    }
+
     public List<ClassroomDTO> fetch_all_classroom() throws IOException, InterruptedException {
 
         gson = new Gson();
