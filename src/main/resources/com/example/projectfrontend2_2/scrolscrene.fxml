@@ -30,6 +30,11 @@
                </font>
             </Label>
             <Circle fill="#1133ba54" layoutX="447.0" layoutY="-41.0" radius="165.0" stroke="WHITE" strokeType="INSIDE" />
+            <Button fx:id="back" layoutX="587.0" layoutY="11.0" mnemonicParsing="false" onAction="#goToHome2" prefHeight="39.0" prefWidth="76.0" style="-fx-background-radius: 20;" stylesheets="@logoutbutton.css" text="Back" textFill="#fffbfb">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
       <ScrollPane fx:id="scroll" layoutX="240.0" layoutY="166.0" prefHeight="511.0" prefWidth="637.0" stylesheets="@tile_design.css" />
       <TextArea fx:id="txtArea" layoutX="257.0" layoutY="104.0" prefHeight="40.0" prefWidth="524.0" promptText="Type Something.." stylesheets="@postfield.css" />
