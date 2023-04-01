@@ -54,6 +54,11 @@
                </font>
             </Button>
             <Line endX="100.0" fill="WHITE" layoutX="273.0" layoutY="203.0" startX="-100.0" stroke="WHITE" />
+            <Button fx:id="back" layoutX="458.0" layoutY="20.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="39.0" prefWidth="76.0" style="-fx-background-radius: 20;" stylesheets="@login.css" text="Back">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </center>

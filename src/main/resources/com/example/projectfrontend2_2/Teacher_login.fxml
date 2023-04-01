@@ -48,12 +48,17 @@
                         <Font name="System Bold" size="22.0" />
                     </font>
                 </Label>
-                <Button layoutX="222.0" layoutY="414.0" mnemonicParsing="false" onAction="#goToTeacherScene" prefHeight="33.0" prefWidth="86.0" stylesheets="@login.css" text="Login">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
                 <Line endX="100.0" fill="WHITE" layoutX="291.0" layoutY="228.0" startX="-100.0" stroke="WHITE" />
+            <Button layoutX="225.0" layoutY="413.0" mnemonicParsing="false" onAction="#goToTeacherScene" prefHeight="45.0" prefWidth="96.0" style="-fx-background-radius: 20;" stylesheets="@login.css" text="Login">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="back" layoutX="451.0" layoutY="11.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="39.0" prefWidth="76.0" style="-fx-background-radius: 20;" stylesheets="@login.css" text="Back">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </center>

@@ -100,5 +100,10 @@
          </children>
       </Pane>
       <Circle fill="#1133ba54" layoutX="565.0" layoutY="-35.0" radius="225.0" stroke="WHITE" strokeType="INSIDE" />
+      <Button fx:id="back" layoutX="791.0" layoutY="13.0" mnemonicParsing="false" onAction="#goToHome2" prefHeight="39.0" prefWidth="76.0" style="-fx-background-radius: 20;" stylesheets="@logoutbutton.css" text="Back" textFill="#fffbfb">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

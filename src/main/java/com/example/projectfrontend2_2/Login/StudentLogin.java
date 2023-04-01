@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -29,6 +30,9 @@ public class StudentLogin {
 
     @FXML
     private TextField studentID;
+
+    @FXML
+    private Button back;
 
     @FXML
     private Label welcomeText;
@@ -96,5 +100,14 @@ public class StudentLogin {
 
 
 
+    }
+    public void goToHome(ActionEvent event) throws IOException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        myStage.setScene(subtractionScene);
+        myStage.show();
     }
 }
