@@ -16,10 +16,21 @@ public class StudentDTO  {
 
     private  String dept;
 
+    private  String email;
+
     private float cgpa;
 
     private int session;
     private ArrayList<Long> classroom_id = new ArrayList<>();
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
 
     public Long getId() {
         return id;

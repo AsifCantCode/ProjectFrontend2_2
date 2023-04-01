@@ -16,6 +16,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Priority;
@@ -44,6 +45,14 @@ public class core2 {
     @FXML
     private Button attendance;
 
+    @FXML
+
+    private Label name;
+
+    @FXML
+    private  Label id;
+
+
 
     private TeacherDTO tdto;
     private ClassroomDTO cdto;
@@ -66,6 +75,9 @@ public class core2 {
 
     public  void init() throws IOException, InterruptedException {
 
+
+        name.setText(tdto.getName());
+        id.setText(tdto.getTeachid().toString());
         VBox vb = new VBox();
         vb.setSpacing(15);
         //vb.setPadding(new Insets(2,0,2,0));

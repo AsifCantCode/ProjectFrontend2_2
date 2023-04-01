@@ -18,32 +18,28 @@ import java.util.Properties;
 
 public class email {
 
-    @FXML
-    private TextField frame;
-    @FXML
-    private TextField txtEmail;
 
-    @FXML
-    private TextField txtmsg;
-    @FXML
-    private Button j;
-    @FXML
-    private  TextField txtsub;
 
-    public void sendMail(ActionEvent event) throws IOException, InterruptedException{
-            System.out.println(txtEmail.getText());
-            String to = "asif141100@gmail.com";
-            String from = "asifabrar@iut-dhaka.edu";
-            String host = "localhost";
-            String port = "25";
+    private String txtEmail;
+
+
+    private String txtmsg;
+
+
+    private  String txtsub;
+
+    public void sendMail() {
+            System.out.println(txtEmail);
+
 
             //Setting Properties
             Properties props = System.getProperties();
             propertySetter(props);
 
-            final String username = "asifabrar@iut-dhaka.edu";//
-            final String password = "";
-            instaSendMail(username, password, txtEmail.getText(), txtsub.getText(), txtmsg.getText(), props);
+            final String username = "projectclassroomredefined@gmail.com";//
+            final String password = "fallguysSAD";
+            if(txtEmail == null) return;
+            instaSendMail(username, password, txtEmail, txtsub, txtmsg, props);
 
     }
 
@@ -86,6 +82,14 @@ public class email {
             Transport.send(msg);
             JOptionPane.showMessageDialog(null, "Sent");
         }catch (MessagingException e){ System.out.println("Error, cause: " + e);}
+    }
+
+
+    public void mail_pathao(String to_mail , String mail_text , String mail_subject){
+        txtEmail = to_mail;
+        txtsub = mail_subject;
+        txtmsg = mail_text;
+        sendMail();
     }
     private static String getExceptionMessage(Exception e) {
         StringWriter sw = new StringWriter();
