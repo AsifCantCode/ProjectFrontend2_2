@@ -17,7 +17,8 @@ public class AttendanceChart {
 
     @FXML
     private CategoryAxis y;
-    public void initialize(URL url, ResourceBundle resourceBundle){
+
+    public void initialize(){
         XYChart.Series series1 = new XYChart.Series<>();
         series1.setName("2003");
 
@@ -36,6 +37,6 @@ public class AttendanceChart {
         series2.getData().add(new XYChart.Data("Bangladesh", 234333));
         series2.getData().add(new XYChart.Data("India", 120000));
 
-        barChart.getData().addAll(series1);
+        barChart.getData().addAll(series1, series2);
     }
 }
