@@ -1,62 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="1047.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.GradeScene">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.GradeScene">
    <children>
-      <VBox layoutY="90.0" prefHeight="586.0" prefWidth="410.0">
+      <Circle fill="#b910e33d" layoutX="894.0" layoutY="725.0" radius="139.0" stroke="#ffffff00" strokeType="INSIDE" />
+      <Label fx:id="assignment_name" layoutX="393.0" layoutY="14.0" prefHeight="89.0" prefWidth="321.0" text=" Assignment Name">
+         <font>
+            <Font name="Segoe UI Semibold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="403.0" layoutY="104.0" prefHeight="46.0" prefWidth="166.0" text="Submissions">
+         <font>
+            <Font name="Segoe UI Emoji" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="403.0" layoutY="454.0" text="Name : ">
+         <font>
+            <Font name="Segoe UI Emoji" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="student_name" layoutX="486.0" layoutY="454.0" text="Samnun Azfar">
+         <font>
+            <Font name="Segoe UI Emoji" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="403.0" layoutY="500.0" text="Files :">
+         <font>
+            <Font name="Segoe UI Emoji" size="22.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="files" layoutX="469.0" layoutY="500.0" prefHeight="102.0" prefWidth="350.0" stylesheets="@scrollbar.css" />
+      <TextField fx:id="grade" layoutX="492.0" layoutY="622.0" prefHeight="26.0" prefWidth="105.0" stylesheets="@login.css" />
+      <Label layoutX="406.0" layoutY="622.0" text="Grade :">
+         <font>
+            <Font name="Segoe UI Emoji" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="607.0" layoutY="617.0" text="/ ">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="total_grade" layoutX="628.0" layoutY="619.0" text="100">
+         <font>
+            <Font name="Segoe UI Semilight" size="22.0" />
+         </font>
+      </Label>
+      <Pane layoutX="-8.0" layoutY="-7.0" prefHeight="686.0" prefWidth="334.0" style="-fx-background-color: purple;">
          <children>
-            <ScrollPane fx:id="submissions" prefHeight="593.0" prefWidth="410.0" stylesheets="@scrollbar.css" />
+            <Circle fill="WHITE" layoutX="157.0" layoutY="264.0" radius="139.0" stroke="WHITE" strokeType="INSIDE" />
+            <ImageView fitHeight="183.0" fitWidth="229.0" layoutX="66.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@exam.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="Logout" alignment="CENTER" layoutX="-1.0" layoutY="591.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="62.0" prefWidth="334.0" stylesheets="@logoutbutton2.css" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Circle fill="#ffffff00" layoutX="14.0" layoutY="435.0" radius="107.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fill="WHITE" layoutX="167.0" layoutY="-57.0" radius="100.0" stroke="WHITE" strokeType="INSIDE" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="67.0" prefHeight="53.0" prefWidth="334.0" text="Grading" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <VBox layoutX="402.0" layoutY="151.0" prefHeight="287.0" prefWidth="410.0">
+         <children>
+            <ScrollPane fx:id="submissions" prefHeight="283.0" prefWidth="410.0" stylesheets="@scrollbar.css" />
          </children>
       </VBox>
-      <Label fx:id="assignment_name" layoutX="13.0" prefHeight="89.0" prefWidth="321.0" text=" Assignment Name">
-         <font>
-            <Font name="Segoe UI Semibold" size="30.0" />
-         </font>
-      </Label>
-      <Line endX="946.0" layoutX="101.0" layoutY="90.0" startX="-100.0" />
-      <Label layoutX="430.0" layoutY="92.0" prefHeight="78.0" prefWidth="404.0" text="Submission :">
-         <font>
-            <Font name="Segoe UI Semibold" size="50.0" />
-         </font>
-      </Label>
-      <Label layoutX="432.0" layoutY="180.0" text="Name : ">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="student_name" layoutX="557.0" layoutY="180.0" text="Samnun Azfar">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="433.0" layoutY="216.0" text="Files :">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <ScrollPane fx:id="files" layoutX="526.0" layoutY="226.0" prefHeight="143.0" prefWidth="350.0" stylesheets="@scrollbar.css" />
-      <TextField fx:id="grade" layoutX="539.0" layoutY="410.0" prefHeight="26.0" prefWidth="105.0" />
-      <Label layoutX="439.0" layoutY="407.0" text="Grade :">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="650.0" layoutY="405.0" text="/ ">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="total_grade" layoutX="666.0" layoutY="406.0" text="100">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
+      <Circle fill="#b910e33d" layoutX="881.0" layoutY="-112.0" radius="225.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fill="#b910e33d" layoutX="682.0" layoutY="-149.0" radius="225.0" stroke="WHITE" strokeType="INSIDE" />
    </children>
 </AnchorPane>

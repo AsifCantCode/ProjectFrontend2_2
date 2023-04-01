@@ -54,5 +54,14 @@
 .scroll-bar:horizontal .increment-button:hover .increment-arrow,
 .scroll-bar:horizontal .decrement-button:hover .decrement-arrow {
     -fx-background-color: #ddd;
+
+}
+
+.scroll-pane {
+    -fx-background-color: white;
+}
+
+.scroll-pane:hover {
+    -fx-background-color: #c359d4;
 }
 
