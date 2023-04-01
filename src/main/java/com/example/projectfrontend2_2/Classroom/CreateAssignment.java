@@ -32,6 +32,9 @@ public class CreateAssignment {
     @FXML
     private TextField marks;
 
+    @FXML
+    private Button upload;
+
 
     @FXML
     private DatePicker dpkr;

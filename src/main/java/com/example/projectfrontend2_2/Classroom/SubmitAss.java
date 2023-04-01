@@ -20,6 +20,9 @@ public class SubmitAss {
     @FXML
     private Button files;
 
+    @FXML
+    private Button upload;
+
 
     private StudentDTO sdto;
     private AssignmentDTO adto;
