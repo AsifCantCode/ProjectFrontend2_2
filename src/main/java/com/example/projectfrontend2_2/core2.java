@@ -115,6 +115,8 @@ public class core2 {
 
         VBox vb = new VBox();
         vb.setSpacing(15);
+
+        List<Node> vbnodes = new ArrayList<>();
         for(Long x : cdto.getAssignmentsHereID()){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("assignment_tile.fxml"));
             Node e = fxl.load();
@@ -127,9 +129,19 @@ public class core2 {
             tc.getDate().setText(adto.getDeadline().toString());
             tc.getAssignment_title().setText(adto.getTitle());
             tc.init();
-            vb.getChildren().add(e);
+
+            e.setUserData(adto);
+            vbnodes.add(e);
             VBox.setVgrow(e, Priority.ALWAYS);
         }
+
+        Collections.sort(vbnodes , (a , b) ->{
+            AssignmentDTO x = (AssignmentDTO) a.getUserData();
+            AssignmentDTO y = (AssignmentDTO) b.getUserData();
+
+            return x.getDeadline().compareTo(y.getDeadline());
+        });
+        vb.getChildren().addAll(vbnodes);
         scroll.setContent(vb);
 
     }

@@ -18,6 +18,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
@@ -133,7 +134,7 @@ public class assignment_tile_control {
 
     public void init() {
         teacher.setText(adto.getTitle());
-        date.setText(adto.getDeadline().toString());
+        date.setText(adto.getDeadline().toLocalDateTime().format(DateTimeFormatter.ofPattern("d LLLL uuuu , hh:mm:ss a")));
         assignment_title.setText(adto.getInstruction());
 
 

@@ -31,6 +31,8 @@ public class GradeScene {
     @FXML
     private TextField grade;
 
+
+
     @FXML
     private Label assignment_name;
     @FXML
@@ -51,6 +53,8 @@ public class GradeScene {
 
         VBox vb = new VBox();
         vb.setSpacing(5);
+        total_grade.setText(adto.getMarks().toString());
+        assignment_name.setText(adto.getTitle());
         for(Long x  : adto.getSubmissionsOfThisID()){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("submissionview.fxml"));
             Node e = fxl.load();
@@ -77,6 +81,7 @@ public class GradeScene {
     public  void submit_grade() throws IOException, InterruptedException {
 
         currentSub.setGrade(Float.parseFloat(grade.getText()));
+
         rqm.create_submit(currentSub);
     }
 
@@ -93,6 +98,7 @@ public class GradeScene {
     public void init_sub() throws IOException, InterruptedException {
         student_name.setText(currentSub.getSubmittedBy());
         grade.setText(Float.toString(currentSub.getGrade()));
+
         VBox vb2 = new VBox();
         vb2.setSpacing(5);
         for(Long x : currentSub.getAddedFiles()){
