@@ -6,14 +6,17 @@ import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.http.RequestMaker;
 import com.example.projectfrontend2_2.post.PostDTO;
 import com.example.projectfrontend2_2.teacher.TeacherDTO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -69,7 +72,26 @@ public class GradeScene {
 
     }
 
+    @FXML
+    public  void submit_grade() throws IOException, InterruptedException {
+
+        currentSub.setGrade(Float.parseFloat(grade.getText()));
+        rqm.create_submit(currentSub);
+    }
+
+    @FXML
+    public void goToHome(ActionEvent event) throws IOException {
+        Node root = (Node) event.getSource();
+        Stage myStage = (Stage) root.getScene().getWindow();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        myStage.setScene(subtractionScene);
+        myStage.show();
+    }
     public void init_sub() throws IOException, InterruptedException {
+        student_name.setText(currentSub.getSubmittedBy());
+        grade.setText(Float.toString(currentSub.getGrade()));
         VBox vb2 = new VBox();
         vb2.setSpacing(5);
         for(Long x : currentSub.getAddedFiles()){

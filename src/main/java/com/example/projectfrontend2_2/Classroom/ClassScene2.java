@@ -1,5 +1,6 @@
 package com.example.projectfrontend2_2.Classroom;
 
+import com.example.projectfrontend2_2.AttendanceChart;
 import com.example.projectfrontend2_2.HelloApplication;
 import com.example.projectfrontend2_2.Login.StudentLogin;
 import com.example.projectfrontend2_2.Student.StudentDTO;
@@ -153,14 +154,35 @@ public class ClassScene2 {
         myStage.show();
     }
 
-    public void goToHome2(ActionEvent event) throws IOException {
+    public void goToHome2(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
+
+        ClassScene cs = fxmlLoader.getController();
+        cs.setStudentDTO(sdto);
+        cs.init();
         myStage.setScene(subtractionScene);
         myStage.show();
+    }
+
+    @FXML
+    public void gotoStats(ActionEvent event) throws IOException, InterruptedException {
+
+        Stage myStage = new Stage();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Chart.fxml"));
+        Scene subtractionScene = new Scene(fxmlLoader.load());
+        AttendanceChart ac = fxmlLoader.getController();
+
+        ac.setStudentDTO(sdto);
+        ac.init();
+
+        myStage.setScene(subtractionScene);
+        myStage.show();
+
     }
 
 }

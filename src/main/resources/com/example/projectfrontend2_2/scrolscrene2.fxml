@@ -67,7 +67,7 @@
             </Label>
             <VBox layoutY="417.0" prefHeight="298.0" prefWidth="240.0" spacing="15.0">
                <children>
-                  <Button fx:id="go2" mnemonicParsing="false" prefHeight="36.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Post" textFill="WHITE">
+                  <Button fx:id="go2" mnemonicParsing="false" onAction="#init" prefHeight="36.0" prefWidth="240.0" stylesheets="@logoutbutton2.css" text="Post" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

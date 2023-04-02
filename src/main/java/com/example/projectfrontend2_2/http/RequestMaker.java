@@ -167,6 +167,50 @@ public class RequestMaker {
         return cdto;
     }
 
+    public Float get_all_attendance(Long Class_id , Long studid) throws IOException, InterruptedException {
+
+        gson = new Gson();
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/classroom/stat/allclasses/" + Class_id.toString() + "/" + studid.toString())).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body().toString());
+        Float cdto = gson.fromJson(response.body().toString() , Float.class);
+
+
+
+        return cdto;
+    }
+
+    public Float get_present_attendance(Long Class_id , Long studid) throws IOException, InterruptedException {
+
+        gson = new Gson();
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/classroom/stat/presentclasses/" + Class_id.toString() + "/" + studid.toString())).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body().toString());
+        Float cdto = gson.fromJson(response.body().toString() , Float.class);
+
+
+
+        return cdto;
+    }
+
     public StudentDTO fetch_student(Long id) throws IOException, InterruptedException {
 
         gson = new Gson();

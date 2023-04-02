@@ -3,6 +3,7 @@ package com.example.projectfrontend2_2.Classroom;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.courseReg.CourseRegistration;
 import com.example.projectfrontend2_2.HelloApplication;
+import com.example.projectfrontend2_2.http.RequestMaker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClassScene {
@@ -77,9 +79,17 @@ public class ClassScene {
 
     @FXML
     private Label due_ass;
-    public void initialize(){
-        id.setText(" " + (studentid));
-        name.setText(nm);
+    public void init() throws IOException, InterruptedException {
+        RequestMaker rqm = new RequestMaker();
+        this.studentDTO = rqm.fetch_student(studentDTO.getId());
+        id.setText(" " + studentDTO.getStudid());
+        name.setText(studentDTO.getName());
+        all_classrooms = new ArrayList<>();
+        for(Long x : studentDTO.getClassroom_id()){
+            all_classrooms.add(rqm.fetch_classroom(x));
+        }
+
+
     }
     @FXML
     protected void onCourseClick(){

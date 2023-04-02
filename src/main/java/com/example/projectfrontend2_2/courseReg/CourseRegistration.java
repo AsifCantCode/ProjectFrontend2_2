@@ -1,5 +1,6 @@
 package com.example.projectfrontend2_2.courseReg;
 
+import com.example.projectfrontend2_2.Classroom.ClassScene;
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.HelloApplication;
 import com.example.projectfrontend2_2.Student.StudentDTO;
@@ -107,7 +108,7 @@ public class CourseRegistration {
 
     @FXML
     public void onRegisterClick() throws IOException, InterruptedException {
-        CourseRegDTO crdto = new CourseRegDTO(selected_course.getId() , this.current_student);
+        CourseRegDTO crdto = new CourseRegDTO(selected_course.getId() , sdto.getStudid());
 
         rqm.course_register_attempt(crdto);
     }
@@ -128,12 +129,17 @@ public class CourseRegistration {
         return current_student;
     }
 
-    public void goToHome2(ActionEvent event) throws IOException {
+    public void goToHome2(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene.fxml"));
         Scene subtractionScene = new Scene(fxmlLoader.load());
+
+        ClassScene cs = fxmlLoader.getController();
+
+        cs.setStudentDTO(sdto);
+        cs.init();
         myStage.setScene(subtractionScene);
         myStage.show();
     }

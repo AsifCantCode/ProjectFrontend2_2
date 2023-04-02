@@ -91,7 +91,7 @@ public class StudentLogin {
             clasctrl.setAll_classrooms(all_classrooms);
             clasctrl.setNm(studentDTO.getName());
             clasctrl.setStudentid(studentDTO.getStudid().intValue());
-            clasctrl.initialize();
+            clasctrl.init();
 
             myStage.setScene(studentscene);
             myStage.show();

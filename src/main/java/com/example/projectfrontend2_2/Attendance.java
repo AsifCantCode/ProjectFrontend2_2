@@ -51,24 +51,25 @@ public class Attendance {
         HBox hb = new HBox();
         //classlist.addAll(cdto.getPosts());
 
+        List<StudentDTO> studentDTOS = new ArrayList<>();
         for(Long id : classlist){
+            studentDTOS.add(rqm.fetch_student(id));
+        }
+
+        Collections.sort(studentDTOS , (a , b)-> Math.toIntExact(a.getStudid() - b.getStudid()));
+
+        for(StudentDTO x : studentDTOS){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("attendance-tile.fxml"));
             Node e = fxl.load();
             AttendanceTile tc = fxl.getController();
-            tc.setSdto(rqm.fetch_student(id));
+            tc.setSdto(x);
             tc.setCdto(cdto);
             tc.setDate(current_date);
             tc.init();
-            e.setUserData(tc.getSdto());
             vb.getChildren().add(e);
             VBox.setVgrow(hb, Priority.ALWAYS);
         }
-        Collections.sort(vb.getChildren() , (a , b)->{
-            StudentDTO ab = (StudentDTO) a.getUserData();
-            StudentDTO bb = (StudentDTO) b.getUserData();
 
-            return Math.toIntExact(ab.getStudid() - bb.getStudid());
-        });
 
         scroll.setContent(vb);
     }
