@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 
 public class GradeScene {
 
@@ -101,6 +102,7 @@ public class GradeScene {
 
             tc.setFdto(rqm.fetch_file_info(x));
             tc.getFilename().setText(tc.getFdto().getFilename());
+            tc.getDate().setText(tc.getFdto().getTs().toLocalDateTime().format(DateTimeFormatter.ofPattern("d LLL uuuu , hh:mm:ss a")));
             vb2.getChildren().add(e);
             VBox.setVgrow(e, Priority.ALWAYS);
         }

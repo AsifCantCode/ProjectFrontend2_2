@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Time;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -119,12 +120,14 @@ public class core {
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("tile.fxml"));
             Node e = fxl.load();
             tilecontrol tc = fxl.getController();
-            e.addEventHandler(MouseEvent.MOUSE_ENTERED, this::handleMouseEntered);
-            e.addEventHandler(MouseEvent.MOUSE_EXITED, this::handleMouseExited);
             PostDTO p = rqm.fetch_post(id);
-            tc.getDate().setText(p.getTime().toString());
+
+            LocalDateTime lc = p.getTime().toLocalDateTime();
+
+            tc.getDate().setText(lc.format(DateTimeFormatter.ofPattern("d MMM uuuu , HH:mm:ss ")));
             tc.getPoster().setText(p.getPosted_by());
             tc.getPost().setText(p.getText());
+            tc.getMainPane().setMinHeight(75 + tc.getPost().getBoundsInLocal().getHeight());
             vb.getChildren().add(e);
             VBox.setVgrow(e, Priority.ALWAYS);
         }

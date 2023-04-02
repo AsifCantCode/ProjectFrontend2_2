@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -17,7 +16,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.core2">
     <children>
       <Circle fill="#9212b854" layoutX="727.0" layoutY="-37.0" radius="165.0" stroke="WHITE" strokeType="INSIDE" />
-        <ScrollPane fx:id="scroll" layoutX="240.0" layoutY="169.0" prefHeight="508.0" prefWidth="643.0" />
+        <ScrollPane fx:id="scroll" layoutX="240.0" layoutY="169.0" prefHeight="508.0" prefWidth="643.0" stylesheets="@scrollbar.css" />
       <Button fx:id="go" layoutX="799.0" layoutY="110.0" mnemonicParsing="false" onAction="#create_post" prefHeight="26.0" prefWidth="68.0" stylesheets="@beguni.css" text="Post" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
@@ -43,11 +42,6 @@
                   </LinearGradient>
                </fill>
             </Circle>
-            <ImageView fitHeight="180.0" fitWidth="222.0" layoutX="28.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@man.png" />
-               </image>
-            </ImageView>
             <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutY="322.0" prefHeight="35.0" prefWidth="240.0" text="Samnun" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="24.0" />
@@ -60,6 +54,7 @@
             </Label>
             <Circle fill="#ffffff00" layoutX="130.0" layoutY="205.0" radius="116.0" stroke="WHITE" strokeType="INSIDE" />
             <Circle fill="WHITE" layoutX="119.0" layoutY="-61.0" radius="100.0" stroke="WHITE" strokeType="INSIDE" />
+            <ImageView fitHeight="180.0" fitWidth="222.0" layoutX="28.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutY="49.0" prefHeight="17.0" prefWidth="240.0" text="Teacher Portal" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="28.0" />
@@ -96,7 +91,7 @@
             </VBox>
          </children>
       </Pane>
-          <TextArea fx:id="txtArea" layoutX="252.0" layoutY="109.0" prefHeight="38.0" prefWidth="530.0" promptText="Type Something.." />
+          <TextArea fx:id="txtArea" layoutX="252.0" layoutY="109.0" prefHeight="38.0" prefWidth="530.0" promptText="Type Something.." stylesheets="@postfield.css" />
       <Label fx:id="title" layoutX="252.0" layoutY="29.0" prefHeight="63.0" prefWidth="629.0" text="Classroom Title">
          <font>
             <Font name="Segoe UI Semibold" size="36.0" />

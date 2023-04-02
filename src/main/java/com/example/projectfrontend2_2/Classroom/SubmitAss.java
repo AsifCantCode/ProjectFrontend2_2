@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Timestamp;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,6 +88,7 @@ public class SubmitAss {
 
             tc.setFdto(fdto);
             tc.getFilename().setText(fdto.getFilename());
+            tc.getDate().setText(fdto.getTs().toLocalDateTime().format(DateTimeFormatter.ofPattern("d LLL uuuu , HH:mm:ss")));
 
             vb.getChildren().add(e);
             VBox.setVgrow(e, Priority.ALWAYS);

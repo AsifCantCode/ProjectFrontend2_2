@@ -55,9 +55,7 @@ public class CreateAssignment {
 
     public void ButtonAction(ActionEvent event) throws URISyntaxException, IOException, InterruptedException {
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("PDF Files",  "*.pdf")
-        );
+
         List<File> selectedFiles = fc.showOpenMultipleDialog(null);
 
         if(selectedFiles != null){

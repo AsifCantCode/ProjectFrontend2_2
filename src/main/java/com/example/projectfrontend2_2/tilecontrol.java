@@ -7,9 +7,13 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Path;
 
 public class tilecontrol {
     public Label getPoster() {
@@ -30,11 +34,11 @@ public class tilecontrol {
         this.date = date;
     }
 
-    public Label getPost() {
+    public Text getPost() {
         return post;
     }
 
-    public void setPost(Label post) {
+    public void setPost(Text post) {
         this.post = post;
 
     }
@@ -46,19 +50,26 @@ public class tilecontrol {
     Label date;
 
     @FXML
-    Label post;
+    Text post;
 
     @FXML
     Button deets;
 
-    public void goToPost(ActionEvent event) throws IOException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
+    @FXML
+    private Pane mainPane;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("postcontrol.fxml"));
-        Scene subtractionScene = new Scene(fxmlLoader.load());
-        myStage.setScene(subtractionScene);
-        myStage.show();
+    @FXML
+    private VBox vb;
+
+    public void goToPost(ActionEvent event) throws IOException {
+
     }
 
+    public Pane getMainPane() {
+        return mainPane;
+    }
+
+    public void setMainPane(Pane mainPane) {
+        this.mainPane = mainPane;
+    }
 }
