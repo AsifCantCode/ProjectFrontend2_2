@@ -132,6 +132,7 @@ public class core {
             VBox.setVgrow(e, Priority.ALWAYS);
         }
         scroll.setContent(vb);
+        title.setText(cdto.getCoursename());
     }
 
 
@@ -186,9 +187,11 @@ public class core {
 
 
     public void onAssignmentClick() throws IOException, InterruptedException {
+        cdto = rqm.fetch_classroom(cdto.getId());
         init2();
     }
     public void onPostClick() throws IOException, InterruptedException {
+        cdto = rqm.fetch_classroom(cdto.getId());
         init();
     }
     public void goToHome(ActionEvent event) throws IOException {

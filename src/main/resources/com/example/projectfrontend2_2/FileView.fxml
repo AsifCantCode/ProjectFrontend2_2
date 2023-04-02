@@ -20,6 +20,6 @@
          </font>
       </Button>
       <Text fx:id="filename" layoutX="68.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="180.13671875" />
-      <Text fx:id="date" layoutX="67.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="date" layoutX="69.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>

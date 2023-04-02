@@ -25,6 +25,11 @@ public class AttendanceTile {
     @FXML
     RadioButton attendance;
 
+    @FXML
+    private  Button present;
+    @FXML
+    private Button absent;
+
     private StudentDTO sdto;
 
     private  ClassroomDTO cdto;
@@ -44,6 +49,24 @@ public class AttendanceTile {
 
         boolean b = attendance.isSelected();
         Attendance as = new Attendance(date , cdto.getId() , sdto.getStudid() , b );
+        rqm.create_attendance(as);
+    }
+
+    @FXML
+    public  void presentClick(ActionEvent event) throws IOException, InterruptedException {
+
+        present.setStyle("-fx-background-color: #38429c  ");
+        absent.setStyle("-fx-background-color: #95ace8");
+        Attendance as = new Attendance(date , cdto.getId() , sdto.getStudid() , true );
+        rqm.create_attendance(as);
+    }
+
+    @FXML
+    public  void absentClick(ActionEvent event) throws IOException, InterruptedException {
+
+        present.setStyle("-fx-background-color:  #95ace8 ");
+        absent.setStyle("-fx-background-color: #38429c");
+        Attendance as = new Attendance(date , cdto.getId() , sdto.getStudid() , false );
         rqm.create_attendance(as);
     }
 

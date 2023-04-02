@@ -54,7 +54,8 @@ public class core2 {
     @FXML
     private  Label id;
 
-
+    @FXML
+    private Label title;
 
     private TeacherDTO tdto;
     private ClassroomDTO cdto;
@@ -77,7 +78,8 @@ public class core2 {
 
     public  void init() throws IOException, InterruptedException {
 
-
+        cdto = rqm.fetch_classroom(cdto.getId());
+        title.setText(cdto.getCoursename());
         name.setText(tdto.getName());
         id.setText(tdto.getTeachid().toString());
         VBox vb = new VBox();
