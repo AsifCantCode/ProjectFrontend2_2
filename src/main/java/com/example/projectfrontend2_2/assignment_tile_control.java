@@ -142,6 +142,7 @@ public class assignment_tile_control {
         LocalDateTime d = adto.getDeadline().toLocalDateTime();
 
         if(0 > d.compareTo(s)){
+            duetxt.setText("0 hours");
             duepane.setStyle("-fx-background-color:  #FCC2A7 ; -fx-background-radius : 3 ;-fx-border-radius :3 ; -fx-border-color: black ; -fx-border-width: 1");
             long days = ChronoUnit.DAYS.between(s , d);
             System.out.println("days" + days);
@@ -153,7 +154,8 @@ public class assignment_tile_control {
            long hours = ChronoUnit.HOURS.between(s,d);
 
             duetxt.setText(hours + " Hours");
-            if (days > 1){
+
+            if (days >= 1){
                 duetxt.setText(days + " Days");
             }
            if(days > 30){

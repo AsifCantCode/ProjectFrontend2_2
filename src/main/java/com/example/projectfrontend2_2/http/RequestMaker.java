@@ -30,9 +30,11 @@ public class RequestMaker {
     private String url = "http://localhost:8080";
     private Gson gson;
 
+    public static String host_addr = "localhost";
+
     public RequestMaker() {
         gson = new Gson();
-        url = "http://localhost:8080";
+        url = "http://"+host_addr+":8080";
     }
 
     public StudentDTO login_attempt(LoginDTO ldto , String path) throws IOException, InterruptedException {

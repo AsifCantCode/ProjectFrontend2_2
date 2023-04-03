@@ -17,6 +17,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +60,7 @@ public class StudentLogin {
         LoginDTO ldto = new LoginDTO();
         Gson gson = new Gson();
         ldto.setCommon_id(Long.parseLong(studentid.getText()));
-        ldto.setPassword(passWord.getText());
+        ldto.setPassword(hashPassword(passWord.getText()));
 
 
         String jackson = gson.toJson(ldto );
@@ -100,6 +103,35 @@ public class StudentLogin {
 
 
 
+    }
+
+    public static String hashPassword(String password) {
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            // Add password bytes to digest
+            md.update(password.getBytes());
+
+            // Get the hashed password bytes
+            byte[] hashedPasswordBytes = md.digest();
+
+            // Convert hashed password bytes to hexadecimal representation
+            BigInteger bigInt = new BigInteger(1, hashedPasswordBytes);
+            String hashedPassword = bigInt.toString(16);
+
+            // Pad with leading zeros if necessary
+            while (hashedPassword.length() < 32) {
+                hashedPassword = "0" + hashedPassword;
+            }
+
+            // Return the hashed password as a string
+            return hashedPassword;
+        } catch (NoSuchAlgorithmException e) {
+            // Handle error
+            e.printStackTrace();
+            return null;
+        }
     }
     public void goToHome(ActionEvent event) throws IOException {
         Node root = (Node) event.getSource();

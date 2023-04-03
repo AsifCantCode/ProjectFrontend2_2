@@ -1,6 +1,7 @@
 package com.example.projectfrontend2_2;
 
 import com.example.projectfrontend2_2.Classroom.FileDTO;
+import com.example.projectfrontend2_2.http.RequestMaker;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
@@ -38,7 +39,7 @@ public class FileView {
 
     @FXML
     public void openLink() throws IOException {
-        Desktop.getDesktop().browse(URI.create("http://localhost:8080/file/files/" + fdto.getId()));
+        Desktop.getDesktop().browse(URI.create("http://"+ RequestMaker.host_addr +":8080/file/files/" + fdto.getId()));
     }
 
     public FileDTO getFdto() {

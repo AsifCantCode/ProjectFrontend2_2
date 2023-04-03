@@ -1,5 +1,6 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.Classroom.AssignmentDTO;
 import com.example.projectfrontend2_2.Classroom.ClassScene;
 import com.example.projectfrontend2_2.Classroom.ClassroomDTO;
 import com.example.projectfrontend2_2.Student.StudentDTO;
@@ -172,6 +173,8 @@ public class core {
         vb.setSpacing(10);
         vb.setPadding(new Insets(0,0,0,5));
         cdto = rqm.fetch_classroom(cdto.getId());
+
+        List<Node> vbnodes = new ArrayList<>();
         for(Long x : cdto.getAssignmentsHereID()){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("assignment_tile.fxml"));
             Node e = fxl.load();
@@ -180,8 +183,16 @@ public class core {
             astc.setAdto(rqm.fetch_ass(x));
             astc.setSdto(sdto);
             astc.init();
+            e.setUserData(astc.getAdto());
             vb.getChildren().add(e);
         }
+
+        Collections.sort(vbnodes , (a , b) ->{
+            AssignmentDTO x = (AssignmentDTO) a.getUserData();
+            AssignmentDTO y = (AssignmentDTO) b.getUserData();
+
+            return x.getDeadline().compareTo(y.getDeadline());
+        });
 
             //VBox.setVgrow(e, Priority.ALWAYS);
         scroll.setContent(vb);

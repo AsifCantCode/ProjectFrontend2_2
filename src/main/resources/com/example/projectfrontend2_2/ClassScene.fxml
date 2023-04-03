@@ -19,7 +19,7 @@
             <Image url="@bg2.png" />
          </image>
       </ImageView>
-      <Button fx:id="go" alignment="BOTTOM_CENTER" layoutX="345.0" layoutY="274.0" mnemonicParsing="false" onAction="#goToClass2" prefHeight="212.0" prefWidth="190.0" stylesheets="@button_shadow.css" text="Clasroom">
+      <Button fx:id="go" alignment="BOTTOM_CENTER" layoutX="345.0" layoutY="274.0" mnemonicParsing="false" onAction="#goToClass2" prefHeight="212.0" prefWidth="190.0" stylesheets="@button_shadow.css" text="Classroom">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
