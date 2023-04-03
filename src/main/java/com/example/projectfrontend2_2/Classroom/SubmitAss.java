@@ -69,6 +69,8 @@ public class SubmitAss {
     private RequestMaker rqm = new RequestMaker();
     @FXML
     private TextField comments;
+    @FXML
+    private Label submt;
 
 
 
@@ -96,9 +98,39 @@ public class SubmitAss {
 
         files_pane.setContent(vb);
 
-        if(subdto == null) return;
-        comments.setText(subdto.getInformation());
+        System.out.println(subdto.getId());
 
+        if(subdto.getId() == null){
+            Timestamp current = new Timestamp(System.currentTimeMillis());
+            if(adto.getDeadline().compareTo(current) < 0){
+                submt.setText("Deadline Past");
+                submt.setStyle("-fx-text-fill: #7c0a0a");
+            }
+            else{
+
+                submt.setText("Not Submitted , Due " + adto.getDeadline().toLocalDateTime().format(DateTimeFormatter.ofPattern("d LLL uuuu , hh:mm:ss a")));
+                submt.setStyle("-fx-text-fill: #7c0a0a");
+
+            }
+
+        }
+        else {
+            Timestamp current = new Timestamp(System.currentTimeMillis());
+
+            if(adto.getDeadline().compareTo(current) < 0){
+                submt.setText("Deadline Past");
+                submt.setStyle("-fx-text-fill: #7c0a0a");
+            }
+            else{
+                submt.setText("Submitted \nDeadline: " + adto.getDeadline().toLocalDateTime().format(DateTimeFormatter.ofPattern("d LLL uuuu , hh:mm:ss a")));
+                submt.setStyle("-fx-text-fill: #227a2a");
+
+            }
+
+        }
+
+        comments.setText(subdto.getInformation());
+        listview.getItems().clear();
         for(Long sub_files : subdto.getAddedFiles()){
             listview.getItems().add(rqm.fetch_file_info(sub_files).getFilename());
         }
@@ -106,9 +138,7 @@ public class SubmitAss {
 
     public void ButtonAction(ActionEvent event) throws URISyntaxException, IOException, InterruptedException {
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("PDF Files",  "*.pdf")
-        );
+
         List<File> selectedFiles = fc.showOpenMultipleDialog(null);
 
         if(selectedFiles != null){
@@ -140,6 +170,7 @@ public class SubmitAss {
         subdto.setSubmittedOn(ts);
         subdto.setAssignmentId(adto.getId());
         rqm.create_submit(subdto);
+        init();
 
     }
 }

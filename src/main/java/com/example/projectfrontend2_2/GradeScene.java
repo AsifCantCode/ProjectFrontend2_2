@@ -64,7 +64,7 @@ public class GradeScene {
             tc.setSub(subdto);
             tc.setAdto(adto);
             tc.setTdto(tdto);
-
+            tc.init();
             vb.getChildren().add(e);
             VBox.setVgrow(e, Priority.ALWAYS);
         }

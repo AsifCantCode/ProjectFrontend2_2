@@ -8,11 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.sql.Timestamp;
 
 public class Submissionview {
     @FXML
@@ -22,6 +24,11 @@ public class Submissionview {
 
     private AssignmentDTO adto;
     private TeacherDTO tdto;
+
+    @
+    FXML
+    private AnchorPane ancPane;
+
 
 
     public AssignmentDTO getAdto() {
@@ -57,6 +64,18 @@ public class Submissionview {
     }
 
 
+
+    public void init(){
+        Timestamp cur_time = new Timestamp(System.currentTimeMillis());
+
+        if(adto.getDeadline().compareTo(sub.getSubmittedOn()) > 0){
+           ancPane.setStyle("-fx-background-color: #b5dfec");
+        }
+        else{
+            ancPane.setStyle("-fx-background-color: #efabad");
+
+        }
+    }
     @FXML
     public void onGradeClick(javafx.event.ActionEvent event) throws IOException, InterruptedException {
         GradeScene.currentSub = sub;

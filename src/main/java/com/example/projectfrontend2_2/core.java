@@ -111,11 +111,13 @@ public class core {
         VBox vb = new VBox();
         vb.setSpacing(10);
         vb.setPadding(new Insets(0,0,0,5));
+        cdto = rqm.fetch_classroom(cdto.getId());
         List<Long> classlist = new ArrayList<>();
         classlist.addAll(cdto.getPosts());
         Collections.sort(classlist , (a , b)->{
             return Math.toIntExact(b - a);
         });
+
         for(Long id : classlist){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("tile.fxml"));
             Node e = fxl.load();
@@ -169,7 +171,7 @@ public class core {
         VBox vb = new VBox();
         vb.setSpacing(10);
         vb.setPadding(new Insets(0,0,0,5));
-
+        cdto = rqm.fetch_classroom(cdto.getId());
         for(Long x : cdto.getAssignmentsHereID()){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("assignment_tile.fxml"));
             Node e = fxl.load();
