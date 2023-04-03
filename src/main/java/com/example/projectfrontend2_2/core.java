@@ -184,7 +184,7 @@ public class core {
             astc.setSdto(sdto);
             astc.init();
             e.setUserData(astc.getAdto());
-            vb.getChildren().add(e);
+            vbnodes.add(e);
         }
 
         Collections.sort(vbnodes , (a , b) ->{
@@ -193,7 +193,7 @@ public class core {
 
             return x.getDeadline().compareTo(y.getDeadline());
         });
-
+        vb.getChildren().addAll(vbnodes);
             //VBox.setVgrow(e, Priority.ALWAYS);
         scroll.setContent(vb);
     }
