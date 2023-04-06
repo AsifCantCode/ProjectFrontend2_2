@@ -126,11 +126,8 @@ public class core {
             PostDTO p = rqm.fetch_post(id);
 
             LocalDateTime lc = p.getTime().toLocalDateTime();
-
-            tc.getDate().setText(lc.format(DateTimeFormatter.ofPattern("d MMM uuuu , HH:mm:ss ")));
-            tc.getPoster().setText(p.getPosted_by());
-            tc.getPost().setText(p.getText());
-            tc.getMainPane().setMinHeight(75 + tc.getPost().getBoundsInLocal().getHeight());
+            tc.setP(p);
+            tc.init();
             vb.getChildren().add(e);
             VBox.setVgrow(e, Priority.ALWAYS);
         }
@@ -145,7 +142,7 @@ public class core {
         Date date = new Date();
 
         Timestamp ts = new Timestamp(date.getTime());
-        PostDTO pdto = new PostDTO(Long.parseLong("0") ,txtArea.getText() , ts ,sdto.getName() , "sad" , cdto.getId());
+        PostDTO pdto = new PostDTO(Long.parseLong("0") ,txtArea.getText() , ts ,sdto.getName() , new ArrayList<>() , cdto.getId());
 
         rqm.create_post(pdto);
         cdto = rqm.fetch_classroom(cdto.getId());

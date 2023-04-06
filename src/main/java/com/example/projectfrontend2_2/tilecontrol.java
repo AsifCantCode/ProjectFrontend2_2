@@ -1,5 +1,6 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.post.PostDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +14,23 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.PipedOutputStream;
 import java.nio.file.Path;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class tilecontrol {
+
+    private PostDTO p;
+
+    public PostDTO getP() {
+        return p;
+    }
+
+    public void setP(PostDTO p) {
+        this.p = p;
+    }
+
     public Label getPoster() {
         poster.setMinWidth(0);
         poster.setMaxWidth(Double.MAX_VALUE);
@@ -61,10 +76,20 @@ public class tilecontrol {
     @FXML
     private VBox vb;
 
+    private LocalDateTime lc;
+
     public void goToPost(ActionEvent event) throws IOException {
 
     }
 
+
+    public void init(){
+
+            date.setText(lc.format(DateTimeFormatter.ofPattern("d MMM uuuu , HH:mm:ss ")));
+            poster.setText(p.getPosted_by());
+            post.setText(p.getText());
+            mainPane.setMinHeight(75 + post.getBoundsInLocal().getHeight());
+    }
     public Pane getMainPane() {
         return mainPane;
     }

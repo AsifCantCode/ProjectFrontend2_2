@@ -30,7 +30,7 @@ public class RequestMaker {
     private String url = "http://localhost:8080";
     private Gson gson;
 
-    public static String host_addr = "192.168.20.150";
+    public static String host_addr = "localhost";
 
     public RequestMaker() {
         gson = new Gson();

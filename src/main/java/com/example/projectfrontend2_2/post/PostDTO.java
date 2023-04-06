@@ -1,6 +1,8 @@
 package com.example.projectfrontend2_2.post;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostDTO {
     private Long id;
@@ -11,7 +13,7 @@ public class PostDTO {
 
     private String posted_by;
 
-    private String link;
+    private List<String> link;
 
     private Long classroom_id;
 
@@ -47,11 +49,11 @@ public class PostDTO {
         this.posted_by = posted_by;
     }
 
-    public String getLink() {
+    public List<String> getLink() {
         return link;
     }
 
-    public void setLink(String link) {
+    public void setLink(ArrayList<String> link) {
         this.link = link;
     }
 
@@ -63,7 +65,7 @@ public class PostDTO {
         this.classroom_id = classroom_id;
     }
 
-    public PostDTO(Long id, String text, Timestamp time, String posted_by, String link, Long classroom_id) {
+    public PostDTO(Long id, String text, Timestamp time, String posted_by, ArrayList<String> link, Long classroom_id) {
         this.id = id;
         this.text = text;
         this.time = time;

@@ -15,10 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -37,6 +34,13 @@ public class core2 {
 
     @FXML
     private TextArea txtArea;
+
+
+    @FXML
+    private TextField link_text;
+
+    @FXML
+    private ListView link_list;
 
     @FXML
     private Button assign;
@@ -74,6 +78,17 @@ public class core2 {
 
     public void setSdto(TeacherDTO tdto) {
         this.tdto = tdto;
+    }
+
+
+    @FXML
+    public  void link_add(){
+            link_list.getItems().add(link_text.getText());
+    }
+
+    @FXML
+    public void accordionClick(){
+        link_list.getItems().clear();
     }
 
     public  void init() throws IOException, InterruptedException {
@@ -156,7 +171,11 @@ public class core2 {
         Timestamp ts = new Timestamp(date.getTime());
 
         if(tdto == null) return;
-        PostDTO pdto = new PostDTO(Long.parseLong("0") ,txtArea.getText() , ts ,tdto.getName() , "sad" , cdto.getId());
+
+         ArrayList<String> linkgula = new ArrayList<>();
+
+         linkgula.addAll(link_list.getItems());
+        PostDTO pdto = new PostDTO(Long.parseLong("0") ,txtArea.getText() , ts ,tdto.getName() , linkgula , cdto.getId());
 
         rqm.create_post(pdto);
         cdto = rqm.fetch_classroom(cdto.getId());
