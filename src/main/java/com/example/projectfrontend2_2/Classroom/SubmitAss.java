@@ -98,7 +98,7 @@ public class SubmitAss {
 
         files_pane.setContent(vb);
 
-        System.out.println(subdto.getId());
+
 
         if(subdto.getId() == null){
             Timestamp current = new Timestamp(System.currentTimeMillis());

@@ -115,5 +115,10 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <Button layoutX="770.0" layoutY="124.0" mnemonicParsing="false" onAction="#goToRoutine" prefHeight="39.0" prefWidth="97.0" style="-fx-background-radius: 20;" stylesheets="@logoutbutton.css" text="Routine" textFill="#fffbfb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

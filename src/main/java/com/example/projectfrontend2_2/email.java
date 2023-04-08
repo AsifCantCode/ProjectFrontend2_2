@@ -29,7 +29,7 @@ public class email {
     private  String txtsub;
 
     public void sendMail() {
-            System.out.println(txtEmail);
+
 
 
             //Setting Properties

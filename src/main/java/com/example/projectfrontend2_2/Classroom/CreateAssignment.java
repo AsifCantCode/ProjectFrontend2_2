@@ -106,7 +106,7 @@ public class CreateAssignment {
 
         ts = Timestamp.valueOf(dat);
 
-        System.out.println(ts);
+
     }
     public ClassroomDTO getCdto() {
         return cdto;

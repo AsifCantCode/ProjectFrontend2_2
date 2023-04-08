@@ -3,11 +3,18 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="677.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.AttendanceChart">
+<AnchorPane prefHeight="677.0" prefWidth="940.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectfrontend2_2.AttendanceChart">
    <children>
-      <BarChart fx:id="barChart" barGap="20.0" layoutX="109.0" layoutY="89.0" prefHeight="536.0" prefWidth="711.0" stylesheets="@chart.css">
+      <ImageView fitHeight="613.0" fitWidth="940.0" layoutX="7.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bg2.png" />
+         </image>
+      </ImageView>
+      <BarChart fx:id="barChart" barGap="20.0" layoutX="115.0" layoutY="74.0" prefHeight="536.0" prefWidth="711.0" stylesheets="@chart.css">
         <xAxis>
           <CategoryAxis label="Courses" side="BOTTOM" fx:id="x" />
         </xAxis>

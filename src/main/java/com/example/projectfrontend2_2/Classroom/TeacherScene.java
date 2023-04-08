@@ -34,9 +34,9 @@ public class TeacherScene {
 
     public void init(){
 
-        System.out.println("ts init");
+
         if(tdto == null) {
-            System.out.println("NULL");
+
             return;
         }
 

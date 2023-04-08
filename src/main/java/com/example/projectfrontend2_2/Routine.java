@@ -1,5 +1,7 @@
 package com.example.projectfrontend2_2;
 
+import com.example.projectfrontend2_2.Classroom.RoutineDTO;
+import com.example.projectfrontend2_2.http.RequestMaker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,32 +9,33 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.RoundingMode;
 
 public class Routine {
 
     @FXML
     private Button goBack;
     @FXML
-    private Rectangle routine;
-    Image image = new Image("https://www.bogotobogo.com/images/java/tutorial/java_images/Duke256.png");
-    ImagePattern imagePattern = new ImagePattern(image);
-    @FXML
-    protected void goBackToClass(ActionEvent event) throws IOException {
-        Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
+    private ImageView routine;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ClassScene.fxml"));
-        Scene x = new Scene(fxmlLoader.load(), 800, 600);
-        myStage.setScene(x);
-        myStage.show();
+    private RoutineDTO rdto;
+
+    public RoutineDTO getRdto() {
+        return rdto;
     }
 
-    protected void initialize(){
-        routine.setFill(imagePattern);
+    public void setRdto(RoutineDTO rdto) {
+        this.rdto = rdto;
+    }
+
+    public void init(){
+        Image image = new Image("http://"+ RequestMaker.host_addr +":8080/file/files/" + rdto.getFileId());
+        routine.setImage(image);
     }
 }

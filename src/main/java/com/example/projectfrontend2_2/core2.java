@@ -112,11 +112,13 @@ public class core2 {
             PostDTO p = rqm.fetch_post(id);
 
             LocalDateTime lc = p.getTime().toLocalDateTime();
-
-            tc.getDate().setText(lc.format(DateTimeFormatter.ofPattern("d MMM uuuu , HH:mm:ss ")));
-            tc.getPoster().setText(p.getPosted_by());
-            tc.getPost().setText(p.getText());
-            tc.getMainPane().setMinHeight(75 + tc.getPost().getBoundsInLocal().getHeight());
+            tc.setP(p);
+            tc.setLc(lc);
+            tc.init();
+//            tc.getDate().setText(lc.format(DateTimeFormatter.ofPattern("d MMM uuuu , HH:mm:ss ")));
+//            tc.getPoster().setText(p.getPosted_by());
+//            tc.getPost().setText(p.getText());
+//            tc.getMainPane().setMinHeight(75 + tc.getPost().getBoundsInLocal().getHeight());
             vb.getChildren().add(e);
             VBox.setVgrow(e, Priority.ALWAYS);
         }

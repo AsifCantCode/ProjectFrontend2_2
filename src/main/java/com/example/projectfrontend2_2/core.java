@@ -126,6 +126,7 @@ public class core {
             PostDTO p = rqm.fetch_post(id);
 
             LocalDateTime lc = p.getTime().toLocalDateTime();
+            tc.setLc(lc);
             tc.setP(p);
             tc.init();
             vb.getChildren().add(e);
@@ -175,7 +176,7 @@ public class core {
         for(Long x : cdto.getAssignmentsHereID()){
             FXMLLoader fxl = new FXMLLoader(HelloApplication.class.getResource("assignment_tile.fxml"));
             Node e = fxl.load();
-            System.out.println("jo");
+
             assignment_tile_control astc = fxl.getController();
             astc.setAdto(rqm.fetch_ass(x));
             astc.setSdto(sdto);

@@ -145,7 +145,7 @@ public class assignment_tile_control {
             duetxt.setText("0 hours");
             duepane.setStyle("-fx-background-color:  #FCC2A7 ; -fx-background-radius : 3 ;-fx-border-radius :3 ; -fx-border-color: black ; -fx-border-width: 1");
             long days = ChronoUnit.DAYS.between(s , d);
-            System.out.println("days" + days);
+
         }
         else{
             duepane.setStyle("-fx-background-color:  #9bb5ea ; -fx-background-radius : 3 ;-fx-border-radius :3 ; -fx-border-color: black ; -fx-border-width: 1 ");
@@ -165,7 +165,7 @@ public class assignment_tile_control {
 
 
 
-           System.out.println("days" + days);
+
         }
     }
 }

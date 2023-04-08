@@ -7,7 +7,7 @@ module com.example.projectfrontend2_2 {
     requires org.apache.karaf.http.core;
     requires java.mail;
     requires java.desktop;
-
+    requires jsoup;
 
     exports com.example.projectfrontend2_2;
     exports com.example.projectfrontend2_2.http;

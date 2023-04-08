@@ -113,7 +113,7 @@ public class RequestMaker {
         gson = builder.create();
 
 
-        System.out.println(gson.toJson(pdto));
+
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest.newBuilder().
@@ -134,7 +134,7 @@ public class RequestMaker {
         gson = builder.create();
 
 
-        System.out.println(gson.toJson(a));
+
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest.newBuilder().
@@ -166,6 +166,28 @@ public class RequestMaker {
 
 
         System.out.println("here" + cdto.getDept());
+        return cdto;
+    }
+
+    public RoutineDTO fetch_routine(Long routine_id) throws IOException, InterruptedException {
+
+        gson = new Gson();
+
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder().
+                uri(URI.create(url + "/fetch/routine/" + routine_id.toString())).
+                GET().
+                build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body().toString());
+        RoutineDTO cdto = gson.fromJson(response.body().toString() , RoutineDTO.class);
+
+
+
         return cdto;
     }
 

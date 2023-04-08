@@ -30,7 +30,7 @@ public class AttendanceChart {
 
     public void init() throws IOException, InterruptedException {
         XYChart.Series series1 = new XYChart.Series<>();
-        series1.setName("2003");
+        series1.setName("Percentage Of Attendance");
 
 
 //        series1.getData().add(new XYChart.Data("Austria", 2323));
@@ -48,7 +48,7 @@ public class AttendanceChart {
             if(result.isNaN()){
                 result =  0.0;
             }
-            System.out.println(result);
+
 
             series1.getData().add(new XYChart.Data(cdto.getCoursename(), result));
         }

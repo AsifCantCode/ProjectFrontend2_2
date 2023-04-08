@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -71,30 +72,48 @@ public class tilecontrol {
     Button deets;
 
     @FXML
-    private Pane mainPane;
+    private FlowPane fp;
+
+
 
     @FXML
     private VBox vb;
 
     private LocalDateTime lc;
 
+    public LocalDateTime getLc() {
+        return lc;
+    }
+
+    public void setLc(LocalDateTime lc) {
+        this.lc = lc;
+    }
+
     public void goToPost(ActionEvent event) throws IOException {
 
     }
 
 
-    public void init(){
+    public void init() throws IOException {
 
             date.setText(lc.format(DateTimeFormatter.ofPattern("d MMM uuuu , HH:mm:ss ")));
             poster.setText(p.getPosted_by());
             post.setText(p.getText());
-            mainPane.setMinHeight(75 + post.getBoundsInLocal().getHeight());
-    }
-    public Pane getMainPane() {
-        return mainPane;
+
+
+            for(String k : p.getLink()){
+                FXMLLoader fx = new FXMLLoader(HelloApplication.class.getResource("LinkView.fxml"));
+                Node e = fx.load();
+                LinkView lv = fx.getController();
+                lv.setLink(k);
+                lv.init();
+
+                fp.getChildren().add(e);
+
+
+            }
+
+
     }
 
-    public void setMainPane(Pane mainPane) {
-        this.mainPane = mainPane;
-    }
 }

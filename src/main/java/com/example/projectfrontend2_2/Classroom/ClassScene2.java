@@ -3,8 +3,10 @@ package com.example.projectfrontend2_2.Classroom;
 import com.example.projectfrontend2_2.AttendanceChart;
 import com.example.projectfrontend2_2.HelloApplication;
 import com.example.projectfrontend2_2.Login.StudentLogin;
+import com.example.projectfrontend2_2.Routine;
 import com.example.projectfrontend2_2.Student.StudentDTO;
 import com.example.projectfrontend2_2.core;
+import com.example.projectfrontend2_2.http.RequestMaker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,6 +75,8 @@ public class ClassScene2 {
 
     @FXML
     private Label due_ass;
+
+    RequestMaker rqm = new RequestMaker();
     public void initialize(){
 
         if(all_classrooms == null) return;
@@ -116,12 +120,17 @@ public class ClassScene2 {
     }
 
     @FXML
-    protected void goToRoutine(ActionEvent event) throws IOException{
+    protected void goToRoutine(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();
         Stage myStage = (Stage) root.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Routine.fxml"));
-        Scene x = new Scene(fxmlLoader.load(), 800, 600);
+        Scene x = new Scene(fxmlLoader.load());
+
+        Routine r = fxmlLoader.getController();
+        Long  temp_id = sdto.getStudid()/100;
+        r.setRdto(rqm.fetch_routine(temp_id));
+        r.init();
         myStage.setScene(x);
         myStage.show();
     }
