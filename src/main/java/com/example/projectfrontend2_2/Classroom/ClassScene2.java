@@ -122,7 +122,7 @@ public class ClassScene2 {
     @FXML
     protected void goToRoutine(ActionEvent event) throws IOException, InterruptedException {
         Node root = (Node) event.getSource();
-        Stage myStage = (Stage) root.getScene().getWindow();
+        Stage myStage = new Stage();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Routine.fxml"));
         Scene x = new Scene(fxmlLoader.load());

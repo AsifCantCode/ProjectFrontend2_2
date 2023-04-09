@@ -53,11 +53,9 @@ public class LinkView {
             }
 
         }
-        catch(HttpStatusException h){
+        catch(Exception h) {
             link = "www.google.com";
             h.printStackTrace();
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
         }
 
 
