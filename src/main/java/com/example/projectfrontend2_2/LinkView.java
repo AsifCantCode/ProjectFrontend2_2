@@ -42,8 +42,9 @@ public class LinkView {
     public void init() throws IOException {
 
         try{
+            link_press.setText(link);
+            Document doc = Jsoup.connect(link).timeout(5*1000).get();
 
-            Document doc = Jsoup.connect(link).get();
             link_press.setText(doc.title());
 
             if(link.contains("youtube")){
@@ -55,7 +56,7 @@ public class LinkView {
         }
         catch(Exception h) {
             link = "www.google.com";
-            h.printStackTrace();
+            //h.printStackTrace();
         }
 
 
